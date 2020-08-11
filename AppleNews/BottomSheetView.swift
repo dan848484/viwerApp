@@ -16,13 +16,15 @@ struct BottomSheetView<Content: View>: View  {
     let maxHeight: CGFloat
     let minHeight: CGFloat
     let content:Content
+    let backButtonContent:Void = {}()
+    let closure = {}()
     
-    init(isOpen: Binding<Bool>, maxHeight: CGFloat, @ViewBuilder content: () -> Content){
+    init(isOpen: Binding<Bool>, maxHeight: CGFloat, backButtonContent: () -> Void, @ViewBuilder content: () -> Content){
         self.minHeight = maxHeight * Constants.minHeightRatio
         self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
-        
+        self.backButtonContent = backButtonContent()
     }
     
     private var sinkedAmout: CGFloat{
@@ -36,17 +38,37 @@ struct BottomSheetView<Content: View>: View  {
         
     }
     
-    
     var body: some View{
         GeometryReader{ geometry in
+            
+            ZStack{
+                Button(action:{
+                    self.backButtonContent
+                    
+                }){
+                    Circle()
+                        .foregroundColor(Color(UIColor.secondarySystemBackground))
+                        .frame(width:72, height: 72)
+                        .shadow(radius: 7)
+                        .overlay(Image(systemName: "chevron.left")
+                            .resizable()
+                            .foregroundColor(Color(UIColor.systemBlue))
+                            .frame(width:21,height: 34)
+                            .offset(x: -3)
+                    )
+                }.position(x: geometry.size.width * 0.8, y: geometry.size.height - self.maxHeight * 1.2)
+                    .offset(y: max((self.sinkedAmout + self.translation),0))
+                
+                
+            }.frame(width: geometry.size.width, height: geometry.size.height)
             VStack(spacing: 0){
                 self.bar.padding()
                 self.content
             }
-           .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
+            .frame(width: geometry.size.width, height: self.maxHeight, alignment: .top)
             .background(Color(UIColor.systemBackground))
             .cornerRadius(Constants.radius)
-        .shadow(radius: 20)
+            .shadow(radius: 20)
             .frame(height: geometry.size.height,alignment: .bottom)
             .offset(y: max((self.sinkedAmout + self.translation),0))
             .animation(.interactiveSpring())

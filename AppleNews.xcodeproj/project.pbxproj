@@ -13,7 +13,6 @@
 		D03697A2245C2B4F00B0B2E5 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036979B245C2B4F00B0B2E5 /* SafariView.swift */; };
 		D03697A3245C2B4F00B0B2E5 /* Sites+Ectentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036979C245C2B4F00B0B2E5 /* Sites+Ectentions.swift */; };
 		D03697A4245C2B4F00B0B2E5 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D036979D245C2B4F00B0B2E5 /* Webview.swift */; };
-		D070ED77246AD68300B1A3FD /* webManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D070ED76246AD68300B1A3FD /* webManager.swift */; };
 		D0A2384724A73BDA006147E0 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2384624A73BDA006147E0 /* InitialView.swift */; };
 		D0B1403224CD8B65000E4559 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1403124CD8B65000E4559 /* BottomSheetView.swift */; };
 		D0C74FD02486842B004B96A9 /* GradientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C74FCF2486842B004B96A9 /* GradientMaker.swift */; };
@@ -52,12 +51,11 @@
 		D036979B245C2B4F00B0B2E5 /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafariView.swift; path = "../../../../Google ドライブ/同期フォルダ/Xcode/AppleNews/AppleNews/SafariView.swift"; sourceTree = "<group>"; };
 		D036979C245C2B4F00B0B2E5 /* Sites+Ectentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Sites+Ectentions.swift"; path = "../../../../Google ドライブ/同期フォルダ/Xcode/AppleNews/AppleNews/Sites+Ectentions.swift"; sourceTree = "<group>"; };
 		D036979D245C2B4F00B0B2E5 /* Webview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Webview.swift; path = "../../../../Google ドライブ/同期フォルダ/Xcode/AppleNews/AppleNews/Webview.swift"; sourceTree = "<group>"; };
-		D070ED76246AD68300B1A3FD /* webManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = webManager.swift; sourceTree = "<group>"; };
 		D0A2384624A73BDA006147E0 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		D0B1403124CD8B65000E4559 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		D0C74FCF2486842B004B96A9 /* GradientMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
 		D0F38D63245D788C008C1CBD /* AppleNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleNews.xcdatamodel; sourceTree = "<group>"; };
-		D0FA10AF245C2A2C0049DC32 /* AppleNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0FA10AF245C2A2C0049DC32 /* BookMarker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMarker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FA10B2245C2A2C0049DC32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FA10B4245C2A2C0049DC32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D0FA10B9245C2A2C0049DC32 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +109,7 @@
 		D0FA10B0245C2A2C0049DC32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0FA10AF245C2A2C0049DC32 /* AppleNews.app */,
+				D0FA10AF245C2A2C0049DC32 /* BookMarker.app */,
 				D0FA10C8245C2A310049DC32 /* AppleNewsTests.xctest */,
 				D0FA10D3245C2A310049DC32 /* AppleNewsUITests.xctest */,
 			);
@@ -133,7 +131,6 @@
 				D0FA10B4245C2A2C0049DC32 /* SceneDelegate.swift */,
 				D0FA10B9245C2A2C0049DC32 /* ContentView.swift */,
 				D0C74FCF2486842B004B96A9 /* GradientMaker.swift */,
-				D070ED76246AD68300B1A3FD /* webManager.swift */,
 				D0FA10BB245C2A310049DC32 /* Assets.xcassets */,
 				D0FA10C0245C2A310049DC32 /* LaunchScreen.storyboard */,
 				D0FA10C3245C2A310049DC32 /* Info.plist */,
@@ -186,7 +183,7 @@
 			);
 			name = AppleNews;
 			productName = AppleNews;
-			productReference = D0FA10AF245C2A2C0049DC32 /* AppleNews.app */;
+			productReference = D0FA10AF245C2A2C0049DC32 /* BookMarker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D0FA10C7245C2A310049DC32 /* AppleNewsTests */ = {
@@ -305,7 +302,6 @@
 				D0FA10B5245C2A2C0049DC32 /* SceneDelegate.swift in Sources */,
 				D0FA10BA245C2A2C0049DC32 /* ContentView.swift in Sources */,
 				D03697A0245C2B4F00B0B2E5 /* UIColorHex.swift in Sources */,
-				D070ED77246AD68300B1A3FD /* webManager.swift in Sources */,
 				D03697A2245C2B4F00B0B2E5 /* SafariView.swift in Sources */,
 				D03697A3245C2B4F00B0B2E5 /* Sites+Ectentions.swift in Sources */,
 				D0A2384724A73BDA006147E0 /* InitialView.swift in Sources */,
@@ -489,7 +485,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dan.AppleNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookMarker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -510,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = dan.AppleNews;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BookMarker;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

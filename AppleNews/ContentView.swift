@@ -7,12 +7,14 @@ import WebKit
 struct ContentView: View {
     
     @ObservedObject var initViewOn:InitialViewMode
+    
+
     @State var on:Bool = false
     
     @State var showingSite:NSManagedObject?
     @State var showingSite_name = ""//表示しているサイトの名前
     
-    @State var webview:Webview = Webview(url: URL(string: "https://www.google.com/")!)
+    @State var webview:WebViewer = WebViewer(url: "https://www.google.com/")
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
     
     @State var bottomSheetShown = true
@@ -25,15 +27,11 @@ struct ContentView: View {
         entity: Sites.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
     ) var sites: FetchedResults<Sites>
-    
-    
+
     var body: some View {
         
         ZStack{
-
-            
-
-                     
+        
             if self.initViewOn.initialMode == false {
                 VStack{
                     ZStack{
@@ -50,22 +48,24 @@ struct ContentView: View {
                 
                 
                 
+
                 
                 
                 
                 GeometryReader{ geometry in
+
+                    
+                    
                     BottomSheetView(isOpen: self.$bottomSheetShown,
-                                    maxHeight: 267.96000000000004
+                                    maxHeight: 267.96000000000004,
+                                    backButtonContent: {
+                                        
+                                        self.webview.back()
+
+                                        
+                    }
                     ){
                         
-         Button(action:{
-            self.webview.
-            print("")
-
-                  }){
-                      Text("reload")
-         }
-         
                         Group{
                             HStack(){
                                 Group{
@@ -152,7 +152,7 @@ struct ContentView: View {
                                         .padding(.horizontal, 8)
                                         .gesture(TapGesture(count: 1)
                                             .onEnded(){
-                                                self.webview.url = URL(string: site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html")!
+                                                 self.webview   .url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
                                                 self.showingSite_name =  site.name!
                                                 self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                                 self.showingSite = site
@@ -177,9 +177,11 @@ struct ContentView: View {
             }
         }
         .onAppear{
-            self.webview.makeUIView(context: self.content)
+            
+            
+             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
             if self.sites.count != 0 {
-                self.webview.url = URL(string: self.sites[0].url  ?? "https://www.google.com/")!
+                 self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
                 self.showingSite_name = self.sites[0].name ?? "error"
                 self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(self.sites[0].backgrround))
                 self.showingSite = self.sites[0]
