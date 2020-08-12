@@ -8,6 +8,7 @@ struct ContentView: View {
     
     @ObservedObject var initViewOn:InitialViewMode
     
+    @State var hoge:Bool = false
 
     @State var on:Bool = false
     
@@ -28,6 +29,11 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
     ) var sites: FetchedResults<Sites>
 
+    
+    func back() {
+        self.webview.viewer.goBack()
+    }
+    
     var body: some View {
         
         ZStack{
@@ -35,11 +41,9 @@ struct ContentView: View {
             if self.initViewOn.initialMode == false {
                 VStack{
                     ZStack{
-                        
-                        self.webview
-                            .shadow(radius: 1.0)
-                            .background(Color(UIColor(hex: "F2F2F2")))
-                        
+                            self.webview
+                                .shadow(radius: 1.0)
+                                .background(Color(UIColor(hex: "F2F2F2")))
                     }.zIndex(3.0)
                     
                     
@@ -55,13 +59,19 @@ struct ContentView: View {
                 GeometryReader{ geometry in
 
                     
-                    
+                    Button(action: {
+                        self.back()
+                    }){
+                        Text("あいえうお").background(Color.white).position(y:300)
+                    }
                     BottomSheetView(isOpen: self.$bottomSheetShown,
                                     maxHeight: 267.96000000000004,
                                     backButtonContent: {
+//
+                                        self.back()
                                         
-                                        self.webview.back()
-
+                                  
+//                                        self.webview.viwer.
                                         
                     }
                     ){
@@ -179,7 +189,7 @@ struct ContentView: View {
         .onAppear{
             
             
-             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
+//             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
             if self.sites.count != 0 {
                  self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
                 self.showingSite_name = self.sites[0].name ?? "error"
@@ -194,6 +204,8 @@ struct ContentView: View {
         }
         
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
