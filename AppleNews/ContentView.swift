@@ -7,6 +7,7 @@ import WebKit
 struct ContentView: View {
     
     @ObservedObject var initViewOn:InitialViewMode
+    @ObservedObject var prev: PrevButtonPosition
     
     @State var hoge:Bool = false
 
@@ -17,13 +18,15 @@ struct ContentView: View {
     
     @State var webview:WebViewer = WebViewer(url: "https://www.google.com/")
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
-    
+    var modalMaxHeight: CGFloat = 267.96000000000004
     @State var bottomSheetShown = true
     
     @State var settingModal:Bool = false
     @State var EdittingModal:Bool = false
     @State var showSheet:Bool = false //ペンシルアイコンを押した時のシート
     @Environment(\.managedObjectContext) var context
+    
+    
     @FetchRequest(
         entity: Sites.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
@@ -49,31 +52,36 @@ struct ContentView: View {
                     
                     
                 }.background(Color(UIColor(hex: "F2F2F2")))
-                
-                
-                
-
-                
-                
+           
                 
                 GeometryReader{ geometry in
 
+                    VStack{//ブラウザの戻るボタン
+                        Button(action:{
+                            self.back()
+                        }){
+                            Circle()
+                                .foregroundColor(Color(UIColor.secondarySystemBackground))
+                                .frame(width:72, height: 72)
+                                .shadow(radius: 7)
+                                .overlay(Image(systemName: "chevron.left")
+                                    .resizable()
+                                    .foregroundColor(Color(UIColor.systemBlue))
+                                    .frame(width:21,height: 34)
+                                    .offset(x: -3)
+                            )
+                        }.position(x: geometry.size.width * 0.8, y: geometry.size.height - self.modalMaxHeight * 1.2)
+                            .offset(y: self.prev.position)
+                        
+                        
+                    }
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .animation(.interactiveSpring())
                     
-                    Button(action: {
-                        self.back()
-                    }){
-                        Text("あいえうお").background(Color.white).position(y:300)
-                    }
+                    //モーダル
                     BottomSheetView(isOpen: self.$bottomSheetShown,
-                                    maxHeight: 267.96000000000004,
-                                    backButtonContent: {
-//
-                                        self.back()
-                                        
-                                  
-//                                        self.webview.viwer.
-                                        
-                    }
+                                    maxHeight: CGFloat(self.modalMaxHeight),
+                                    prev: self.prev
                     ){
                         
                         Group{
@@ -182,6 +190,7 @@ struct ContentView: View {
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
+            
             }else{
                 Settings(self.initViewOn).environment(\.managedObjectContext, self.context)
             }
@@ -210,6 +219,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(initViewOn: InitialViewMode())
+        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition())
     }
 }
