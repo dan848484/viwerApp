@@ -74,7 +74,7 @@ struct Icon: View {
         let start = UnitPoint.init(x: 0, y: 0) // 左上(始点)
         let end = UnitPoint.init(x: 1, y: 1) // 右下(終点)
         
-        let index = self.backgroundNum-1//添字は0から始まるから、１を引く。
+        let index = self.backgroundNum//添字は0から始まるから、１を引く。 → この仕様はやめて、色ナンバーも0から始まるのに統一しました。
         
         let startColor:UIColor = Icon.combination[index].0
         let endColor:UIColor = Icon.combination[index].1

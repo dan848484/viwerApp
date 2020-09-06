@@ -40,6 +40,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack{
+            
         
             if self.initViewOn.initialMode == false {
                 VStack{
@@ -147,7 +148,7 @@ struct ContentView: View {
                         .background(Color(UIColor.systemBackground))
                         
                         
-                        
+                        //サイトアイコンの生成部分
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack{
                                 
