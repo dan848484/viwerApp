@@ -218,6 +218,7 @@ struct Settings: View {
     
     func addSite(){
         let newSite = Sites(context: context)
+        print("addSite何回されるのでしょーか")
         newSite.id = UUID()
         newSite.name = inputedName
         newSite.url = inputedURL

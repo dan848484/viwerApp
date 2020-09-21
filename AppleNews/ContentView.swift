@@ -137,10 +137,7 @@ struct ContentView: View {
                                         Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
                                     }
                                     .offset(x:-40,y: 4)
-                                    
-                                    
                                 }
-                                
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -167,6 +164,7 @@ struct ContentView: View {
                                     Settings().environment(\.managedObjectContext, self.context)
                                 })
                                 ForEach(self.sites){ site in
+                                    
                                     Icon(site)
                                         .padding(.horizontal, 8)
                                         .gesture(TapGesture(count: 1)
@@ -176,7 +174,7 @@ struct ContentView: View {
                                                 self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                                 self.showingSite = site
                                         }).onAppear(){
-                                            //                                    print("サイトのURL：\(site.url!)")
+//
                                     }
                                 }
                             }
@@ -186,8 +184,7 @@ struct ContentView: View {
                         .background(Color(UIColor.secondarySystemBackground))
                         .edgesIgnoringSafeArea(.bottom)
                         
-                        
-                        
+    
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
