@@ -1,0 +1,21 @@
+PODS:
+  - SwiftyXMLParser (5.1.0)
+
+DEPENDENCIES:
+  - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
+
+EXTERNAL SOURCES:
+  SwiftyXMLParser:
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+CHECKOUT OPTIONS:
+  SwiftyXMLParser:
+    :commit: 5009f14af051cc8e0f20957375deb709f7b53758
+    :git: https://github.com/yahoojapan/SwiftyXMLParser.git
+
+SPEC CHECKSUMS:
+  SwiftyXMLParser: c39a7854b7d32e447e19d0fabdd98696fe26f03a
+
+PODFILE CHECKSUM: a19c3b3915127e2a89497588d41790e3d95659b1
+
+COCOAPODS: 1.9.3
