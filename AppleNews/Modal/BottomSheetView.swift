@@ -95,7 +95,7 @@ struct BottomSheetView<Content: View>: View  {
                         self.prevButton.position = self.maxHeight - self.minHeight
                     }
                     
-                    print(self.translation)
+//                    print(self.translation)
                     
                 }
             )

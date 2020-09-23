@@ -10,7 +10,7 @@ struct ContentView: View {
     @ObservedObject var prev: PrevButtonPosition
     
     @State var hoge:Bool = false
-
+    
     @State var on:Bool = false
     
     @State var showingSite:NSManagedObject?
@@ -31,32 +31,33 @@ struct ContentView: View {
         entity: Sites.entity(),
         sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
     ) var sites: FetchedResults<Sites>
-
+    
     
     func back() {
         self.webview.viewer.goBack()
     }
     
+    
     var body: some View {
         
         ZStack{
             
-        
+            
             if self.initViewOn.initialMode == false {
                 VStack{
                     ZStack{
-                            self.webview
-                                .shadow(radius: 1.0)
-                                .background(Color(UIColor(hex: "F2F2F2")))
+                        self.webview
+                            .shadow(radius: 1.0)
+                            .background(Color(UIColor(hex: "F2F2F2")))
                     }.zIndex(3.0)
                     
                     
                     
                 }.background(Color(UIColor(hex: "F2F2F2")))
-           
+                
                 
                 GeometryReader{ geometry in
-
+                    
                     VStack{//ブラウザの戻るボタン
                         Button(action:{
                             self.back()
@@ -163,19 +164,32 @@ struct ContentView: View {
                                     //environmentでcontextを受け渡さないと、"is not connected"的なエラーが出る。
                                     Settings().environment(\.managedObjectContext, self.context)
                                 })
+                                
+                                
+                                Button(action:{
+                                    //today画面にするために消させてもらう。
+                                    self.webview.viewer.isHidden = true
+                                    
+                                    
+                                }){
+                                    Icon(.TODAY)
+                                        .padding(.horizontal, 8)
+                                }
+                                
                                 ForEach(self.sites){ site in
                                     
-                                    Icon(site)
-                                        .padding(.horizontal, 8)
-                                        .gesture(TapGesture(count: 1)
-                                            .onEnded(){
-                                                 self.webview   .url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
-                                                self.showingSite_name =  site.name!
-                                                self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
-                                                self.showingSite = site
-                                        }).onAppear(){
-//
+                                    
+                                    Button(action:{
+                                        self.webview   .url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
+                                        self.showingSite_name =  site.name!
+                                        self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
+                                        self.showingSite = site
+                                    }){
+                                        Icon(site)
+                                            .padding(.horizontal, 8)
                                     }
+                                    
+                                    //
                                 }
                             }
                         }
@@ -184,21 +198,21 @@ struct ContentView: View {
                         .background(Color(UIColor.secondarySystemBackground))
                         .edgesIgnoringSafeArea(.bottom)
                         
-    
+                        
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
-            
+                
             }else{
                 Settings(self.initViewOn).environment(\.managedObjectContext, self.context)
             }
         }
         .onAppear{
+            //            print(Client.getArticle( "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.yahoo.co.jp%2Frss%2Ftopics%2Fit.xml"))
             
-            
-//             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
+            //             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
             if self.sites.count != 0 {
-                 self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
+                self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
                 self.showingSite_name = self.sites[0].name ?? "error"
                 self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(self.sites[0].backgrround))
                 self.showingSite = self.sites[0]

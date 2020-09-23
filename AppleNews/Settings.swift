@@ -202,7 +202,7 @@ struct Settings: View {
             UITableView.appearance().tableFooterView = UIView()
             
             //large titleの色変更
-            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(hex: "56627C")]
+//            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(hex: "56627C")]
             
             
             
