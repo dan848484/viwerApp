@@ -20,6 +20,9 @@ struct Today: View {
 
 struct Today_Previews: PreviewProvider {
     static var previews: some View {
-        Today()
+        VStack{
+            Today()
+            
+        }
     }
 }
