@@ -9,7 +9,7 @@ struct ContentView: View {
     @ObservedObject var initViewOn:InitialViewMode
     @ObservedObject var prev: PrevButtonPosition
     
-    @State var hoge:Bool = false
+    @State var todayMode:Bool = true
     
     @State var on:Bool = false
     
@@ -38,6 +38,20 @@ struct ContentView: View {
     }
     
     
+    func todayMode(mode:Bool){
+        self.todayMode = mode
+        if(self.todayMode){
+            //today画面にするために消させてもらう。
+            self.webview.viewer.isHidden = true
+            self.showingSite_name = "Today"
+            self.iconBackground = GradientMaker.getTodayColor()
+        }else{
+             self.webview.viewer.isHidden = false
+        }
+        print(self.todayMode)
+    }
+    
+    
     var body: some View {
         
         ZStack{
@@ -46,9 +60,14 @@ struct ContentView: View {
             if self.initViewOn.initialMode == false {
                 VStack{
                     ZStack{
-                        self.webview
-                            .shadow(radius: 1.0)
-                            .background(Color(UIColor(hex: "F2F2F2")))
+                        if(self.todayMode){
+                            Today()
+                        }else{
+                            self.webview
+                                .shadow(radius: 1.0)
+                                .background(Color(UIColor(hex: "F2F2F2")))
+                        }
+                 
                     }.zIndex(3.0)
                     
                     
@@ -167,9 +186,7 @@ struct ContentView: View {
                                 
                                 
                                 Button(action:{
-                                    //today画面にするために消させてもらう。
-                                    self.webview.viewer.isHidden = true
-                                    
+                                     self.todayMode(mode: true)
                                     
                                 }){
                                     Icon(.TODAY)
@@ -184,6 +201,9 @@ struct ContentView: View {
                                         self.showingSite_name =  site.name!
                                         self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                         self.showingSite = site
+                                        
+                                        self.todayMode(mode: false)
+                                        
                                     }){
                                         Icon(site)
                                             .padding(.horizontal, 8)
@@ -213,8 +233,8 @@ struct ContentView: View {
             //             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
             if self.sites.count != 0 {
                 self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
-                self.showingSite_name = self.sites[0].name ?? "error"
-                self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(self.sites[0].backgrround))
+                self.showingSite_name = "Today"
+                self.iconBackground = GradientMaker.getTodayColor()
                 self.showingSite = self.sites[0]
                 
             }else{

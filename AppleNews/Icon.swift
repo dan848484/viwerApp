@@ -27,8 +27,8 @@ struct Icon: View {
     
     //全７種類のグラデーションの組み合わせ（Iconの背景用）
     static  var combination:[(UIColor,UIColor)] = [
-//        (UIColor(hex:"00F2FE"),UIColor(hex:"4FACFE")),
-        (UIColor(hex:"FB546B"),UIColor(hex:"FB546B")),
+        (UIColor(hex:"00F2FE"),UIColor(hex:"4FACFE")),
+//        (UIColor(hex:"FB546B"),UIColor(hex:"FB546B")),
         (UIColor(hex:"FFD1FF"),UIColor(hex:"FAD0C4")),
         (UIColor(hex:"F9F586"),UIColor(hex:"96FBC4")),
         (UIColor(hex:"8DDAD5"),UIColor(hex:"00CDAC")),
