@@ -11,7 +11,7 @@ import Foundation
 class Client {
     
     static func getArticle(_ urltext:String) -> [(String,URL)]{
-        let semaphore = DispatchSemaphore(value: 0)
+        let semaphore = DispatchSemaphore(value: 0) //同期処理を実現するためのもの。
         var articles:[(String,URL)] = []
         
         
@@ -65,7 +65,7 @@ class Client {
    
         
         semaphore.wait()
-        print("Client.getArticle():処理終了")
+//        print("Client.getArticle():処理終了")
         return articles
     }
     

@@ -143,7 +143,7 @@ struct ContentView: View {
                                                     buttons: [
                                                         .default(Text("Edit"), action: {
                                                             self.EdittingModal = true
-                                                            //                                                 Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
+                                                            //Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
                                                         }),
                                                         .destructive(Text("Remove"), action:{
                                                             self.context.delete(self.showingSite!)

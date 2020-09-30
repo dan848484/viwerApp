@@ -44,6 +44,7 @@ struct Settings: View {
     init(_ initOn:InitialViewMode){
         self.mode = .INIT
         self.initViewOn = initOn
+        UIScrollView.appearance().backgroundColor = UIColor.white
     }
     
     init(_ site:NSManagedObject){ // サイトの編集する時のinit
@@ -55,11 +56,15 @@ struct Settings: View {
         //        self.selectOnOpacity[0] = 0
         //        self.selectOnOpacity[self.inputedColorNum] = 1
         self._title = State(initialValue: "Edit") // タイトルをEditにする。1
+        UIScrollView.appearance().backgroundColor = UIColor.white
     }
     
     init(){
         self.mode = .ADD
+        UIScrollView.appearance().backgroundColor = UIColor.white
     }
+    
+    
     
     var body: some View {
         GeometryReader{ geometry in
