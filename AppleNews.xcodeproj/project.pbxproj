@@ -12,6 +12,7 @@
 		D014BC352503EBF0000D72AE /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014BC342503EBF0000D72AE /* Icon.swift */; };
 		D014BC372503EC29000D72AE /* Sites+Ectentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D014BC362503EC28000D72AE /* Sites+Ectentions.swift */; };
 		D014BC3A2503EC84000D72AE /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5524E4692800C8B54C /* Settings.swift */; };
+		D035A9812538862500B86FB8 /* SFSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D035A9802538862500B86FB8 /* SFSafariView.swift */; };
 		D04BFCE62518D8F200376DCB /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE52518D8F200376DCB /* Client.swift */; };
 		D04BFCE82518E2A300376DCB /* SitesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE72518E2A300376DCB /* SitesConfig.swift */; };
 		D05ECB3C2505060900D707C9 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5624E4693200C8B54C /* Webview.swift */; };
@@ -55,6 +56,7 @@
 		D014BC322503EBB6000D72AE /* UIColorHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
 		D014BC342503EBF0000D72AE /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = AppleNews/Icon.swift; sourceTree = SOURCE_ROOT; };
 		D014BC362503EC28000D72AE /* Sites+Ectentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sites+Ectentions.swift"; sourceTree = "<group>"; };
+		D035A9802538862500B86FB8 /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
 		D04BFCE52518D8F200376DCB /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		D04BFCE72518E2A300376DCB /* SitesConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesConfig.swift; sourceTree = "<group>"; };
 		D0A2384624A73BDA006147E0 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				D0F59E5724E46A4300C8B54C /* Modal */,
 				D0F59E5424E468DC00C8B54C /* web */,
 				D014BC342503EBF0000D72AE /* Icon.swift */,
+				D035A9802538862500B86FB8 /* SFSafariView.swift */,
 				D0C2FD57251C054700EDAC1C /* Today.swift */,
 				D0A2384624A73BDA006147E0 /* InitialView.swift */,
 				D0F59E5524E4692800C8B54C /* Settings.swift */,
@@ -402,6 +405,7 @@
 				D0F38D64245D788C008C1CBD /* AppleNews.xcdatamodeld in Sources */,
 				D04BFCE62518D8F200376DCB /* Client.swift in Sources */,
 				D014BC372503EC29000D72AE /* Sites+Ectentions.swift in Sources */,
+				D035A9812538862500B86FB8 /* SFSafariView.swift in Sources */,
 				D014BC3A2503EC84000D72AE /* Settings.swift in Sources */,
 				D0FA10B3245C2A2C0049DC32 /* AppDelegate.swift in Sources */,
 				D014BC352503EBF0000D72AE /* Icon.swift in Sources */,
