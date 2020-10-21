@@ -56,6 +56,7 @@ struct article: View {
     let titleText:String
     let url:URL
     
+    
     init(windowWidth:CGFloat,title:String,url:URL){
         self.widht = windowWidth
         self.titleText = title
@@ -67,9 +68,12 @@ struct article: View {
     var body: some View{
         //        GeometryReader{ geometry in
         
-        Button(action:{
-            self.showSafari = true
-        }){
+        
+        //            Button(action:{
+        //                self.showSafari = true
+        //            })
+        VStack{
+            
             VStack(alignment: .leading){
                 
                 Image("testimg")
@@ -94,8 +98,11 @@ struct article: View {
             .frame(width: self.widht/2 - 30 , height:232)
             .background(Color.white)
             .cornerRadius(30)
-           
+            
         }.frame(width: self.widht/2 - 30 , height:232)
+        .gesture(TapGesture(count: 1).onEnded({
+            self.showSafari = true
+        }))
         
         
         //        }
