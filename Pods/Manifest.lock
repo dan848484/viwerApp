@@ -1,8 +1,14 @@
 PODS:
+  - HTMLReader (2.1.5)
   - SwiftyXMLParser (5.1.0)
 
 DEPENDENCIES:
+  - HTMLReader
   - SwiftyXMLParser (from `https://github.com/yahoojapan/SwiftyXMLParser.git`)
+
+SPEC REPOS:
+  trunk:
+    - HTMLReader
 
 EXTERNAL SOURCES:
   SwiftyXMLParser:
@@ -14,8 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/yahoojapan/SwiftyXMLParser.git
 
 SPEC CHECKSUMS:
+  HTMLReader: 8056b3418baad09718902a1b39361c63b14a894f
   SwiftyXMLParser: c39a7854b7d32e447e19d0fabdd98696fe26f03a
 
-PODFILE CHECKSUM: a19c3b3915127e2a89497588d41790e3d95659b1
+PODFILE CHECKSUM: 0361776c02b769722f9af7838a5082e7169d9dd2
 
 COCOAPODS: 1.9.3

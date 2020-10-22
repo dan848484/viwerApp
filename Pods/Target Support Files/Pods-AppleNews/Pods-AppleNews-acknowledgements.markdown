@@ -1,6 +1,11 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## HTMLReader
+
+HTMLReader is in the public domain.
+
+
 ## SwiftyXMLParser
 
 The MIT License (MIT)

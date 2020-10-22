@@ -30,6 +30,7 @@ class Client {
         //            return  [("failed", URL(string: "")!)]
         //
         //        }
+        print("Client: 通信します。（通信確認用）")
         
         guard let url = URL(string: urltext) else {
             print("Client.getArticle():URLが間違っている可能性があります")
@@ -46,7 +47,7 @@ class Client {
                 return
             }
             
-            print("Client: 通信します。（通信確認用）")
+            
             if let data = data{
                 
                 let decoder = JSONDecoder()

@@ -7,21 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		37831711A9BFF260B36AE192457E457E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB0D45D0F490630A02507BD8818E1A0 /* Parser.swift */; };
-		694AB51A74C16FAA6BAD6FF8DF55C82D /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348B01ADF2C70AD9229F6F1A9A4AA581 /* XML.swift */; };
-		7A461ABD05E28DDC864683AB5E98D3A9 /* Pods-AppleNews-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296C4C6E6FBAEA5F2C3596F65D793F8 /* Pods-AppleNews-dummy.m */; };
-		9451E35B7EBA2AF73FF5B6A184358CE5 /* Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D474480C25F32C1C7B1D32EE9DF2EC4F /* Accessor.swift */; };
-		A3BE645772834EE7B629E0B3E4E711A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		AC1CFBD999586025DFCF402A81409EFB /* SwiftyXMLParser-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D7339FE2445C180D41FF4D2C0266E02 /* SwiftyXMLParser-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B181461877B67DF67E67D59F80B1CCC8 /* Pods-AppleNews-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A533567D5C9A5AAE61FB80911060558 /* Pods-AppleNews-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C45C45653436B5A7FE4A8D30EC5F20BF /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D99917BE19B9B6D121E484E8B28B84 /* Element.swift */; };
-		CEA1B8E13BFFA6E7E80D1C31B3A5EA07 /* SwiftyXMLParser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE4CF8B9321DBE26452E3F299BE97E7 /* SwiftyXMLParser-dummy.m */; };
+		0268370A646DF56956ECF5A880B31D7B /* HTMLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 76EAC70E0F893869651441714DC0B995 /* HTMLEncoding.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		0BF4F31CE48719EA7CCE516279E54FD7 /* HTMLPreprocessedInputStream.h in Headers */ = {isa = PBXBuildFile; fileRef = EFB4CB98DDC666D92A5CDA3DA7C83286 /* HTMLPreprocessedInputStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		103F88C0202A262E787249A242DD6844 /* HTMLSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C41172EB3FBC986CC35F98CF5024EF4 /* HTMLSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B17E9C3E151E9488369B1DDF63E34B8 /* HTMLDocument+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DC5795743B511D14B6DA8D984566DE3 /* HTMLDocument+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37831711A9BFF260B36AE192457E457E /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04DE63F101B1D9F05065D613076E63B /* Parser.swift */; };
+		3A92E4C96777808F7F62C258590F5D5F /* HTMLTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9EC10A88A884C0849E6A7C27FE49DA /* HTMLTextNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3BCDBE227FAC770FE579684F6BBE6851 /* NSString+HTMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 669F50CAE9D59A4E3D6F3BDB4BE7FD51 /* NSString+HTMLEntities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3EF72131DBEE13744EA2F3619660CE3A /* HTMLTreeEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E196424BB07E7D7C5CE832D7D439E384 /* HTMLTreeEnumerator.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4E17BB34D1FB43BFCA78458A5ED73D14 /* HTMLPreprocessedInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F6E0B69C1B14BB3C8D501812338D4ED /* HTMLPreprocessedInputStream.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4E91C27D65BAF14269DB1DB385654F27 /* HTMLSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = AEFD758D7AC7375F9834D18E3475B7F0 /* HTMLSerialization.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4F63C4523FDF4EDB08E3D8C8B8F0E35F /* HTMLReader-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FC5E7783816CC6CE5A11638FA73B0F5 /* HTMLReader-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		505D742D02634BECCC829FBA6490E6B5 /* HTMLOrderedDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = BD038E4F155D90E04037CD0767230B1C /* HTMLOrderedDictionary.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		52A943CE8B7D2EA75194ACA83D751B07 /* HTMLReader-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BE803FBEB166B4D7344E2FD0FAA60C /* HTMLReader-dummy.m */; };
+		54E41ED938AF401376BA5D4D5014DD05 /* HTMLOrderedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 421CC1CBDA6C782B2999A7AD92AC35EF /* HTMLOrderedDictionary.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BB9AE842C3408BCA1681370BCCA4AA6 /* Pods-AppleNews-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A533567D5C9A5AAE61FB80911060558 /* Pods-AppleNews-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5BEB0548A0910F2EC3CEA4A97EFE448D /* HTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A14ACFB9E817B98860057718954CA85 /* HTMLParser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		677B97FCADC00CFD1BC510D26B82F81D /* HTMLTextNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 4941EF9CA1C48E917E3F4F2D3E0FA658 /* HTMLTextNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68C8D815242E4977F631DC7D67574FF4 /* HTMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 579563F145D2DE9F72A574D81D6EFCE7 /* HTMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		694AB51A74C16FAA6BAD6FF8DF55C82D /* XML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587F33E3EEDC3AD0657DAE7E9CAC582 /* XML.swift */; };
+		6A225FB99A4F47F5043F26D3341ED488 /* HTMLTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F95BB9E687B78C722DF6A2D746E474D /* HTMLTokenizer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		71DB0451E7184848424AF3E0B6F889E6 /* HTMLSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 91A16F59B074E02A57D2F7894E78ED6C /* HTMLSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		86DB6C1F5106AEC73E4F7E4228D5F051 /* HTMLComment.h in Headers */ = {isa = PBXBuildFile; fileRef = D5CAF335C918325673F46C0FAF284208 /* HTMLComment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9451E35B7EBA2AF73FF5B6A184358CE5 /* Accessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6FC1DFB0FC194AC07EF6D8FBAEA8BFD /* Accessor.swift */; };
+		979E10A0F86DE4F92CABE6DF5AB8BB57 /* HTMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB744FEA578A0856308E54AB49697B6 /* HTMLNode.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A1CF3B55793FC2AD18839B2619CFDA3E /* HTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 902772F660E058404920495280DF334C /* HTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A34A4AD853E2FC8E0F9F0817CC82D707 /* HTMLDocumentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 74903102E82D44E8BB635CBD6920B5DF /* HTMLDocumentType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A77F76749A1C7207745F1553C319ADF6 /* HTMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 08745B0773A5AF433AB1BF2B6AD0FD78 /* HTMLElement.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A7B6C5CA4D90FD20007976D2FE67D8A6 /* HTMLString.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ACAE0FE5C39BB2711DEBAD5620D77E9 /* HTMLString.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		AAA2A0A074CB69E5C6F4A542062C9EBF /* HTMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 889A2BC0469EE6855D7AF9C222660BE1 /* HTMLReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC1CFBD999586025DFCF402A81409EFB /* SwiftyXMLParser-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5861F971EF9E0180CF61088F9E54479E /* SwiftyXMLParser-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD0BC21B45B0FF9FDAD4C69D15D1FCA1 /* NSString+HTMLEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 11C44C1C11D396527643B0FD510132A8 /* NSString+HTMLEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B00A40D74201EFDA579A64AFA6B32431 /* HTMLDocument.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DA2914A171DBF8BAE19A942DD625EC0 /* HTMLDocument.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B11878EE8D8451C33CEF3E17605D8598 /* HTMLTokenizerState.h in Headers */ = {isa = PBXBuildFile; fileRef = AF0D59E1547D4C06ACD2AE26CD8B2053 /* HTMLTokenizerState.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B15E720191778E11AC95AF0BBF2BF155 /* HTMLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 714CEBA982E12C7715F9F3C3EB3E6816 /* HTMLEncoding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE7A802C6DBE4D41FA20DAE3E4DA6651 /* HTMLQuirksMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 19850AE1C7F5A25E76C9CA2177CC152F /* HTMLQuirksMode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BF23F225A1FDAECF73AC7B06031B6FDD /* HTMLTreeEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = 15F66B0F9BE0FBEDBDA1B8ECBBA1B0E9 /* HTMLTreeEnumerator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C45C45653436B5A7FE4A8D30EC5F20BF /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4EC84998E0E307AD6756D452B9C23C /* Element.swift */; };
+		C63CA08D82F63C2FB36AF0339E5BC164 /* HTMLEntities.h in Headers */ = {isa = PBXBuildFile; fileRef = 23CEF0754FC0C570EB3FB8807370DCDF /* HTMLEntities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9E38AAD0A1832216FCBF8F10B6EEDF9 /* HTMLNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A516A040BBCD8FC54BC007859954A4B /* HTMLNamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CEA1B8E13BFFA6E7E80D1C31B3A5EA07 /* SwiftyXMLParser-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F560239A13925DB1B2E1DC421FF43E3 /* SwiftyXMLParser-dummy.m */; };
 		DA0ADB119CF4DFD064B89D3656E76027 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		FBE2CEBD95DBCF60367CE505238F00C4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E077EC10731528751E2A28A26CA04 /* Error.swift */; };
+		DC48A804DA58BBE22718103BF3CE31D8 /* HTMLComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E43C45CF1F7EBDC6FA0634890944E9E0 /* HTMLComment.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E0E75EBC714489B55C6988346CFD7209 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		E2F7653AA2E1038FEF4B99CE2AAC3BCB /* HTMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = C24C9CDADE3B32DB5C1FE0021131D64E /* HTMLDocument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E837961C4804E6B734A4E4297FE6DF4B /* Pods-AppleNews-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0296C4C6E6FBAEA5F2C3596F65D793F8 /* Pods-AppleNews-dummy.m */; };
+		EC584D22F0B8236725F8393C85B54E28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		ECF29D47F8E14CA110B096B61595B5A3 /* HTMLTokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 46291276A18AC56FC44C1D652FF76910 /* HTMLTokenizer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE4F4E9130FD8708B6C0BF436A9F0896 /* HTMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = A0C6A6538103AAD33BE15282FA3D2EAB /* HTMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F2A65324CC849DBCEB9B1C59C769399A /* HTMLDocumentType.h in Headers */ = {isa = PBXBuildFile; fileRef = DFC70479A9EE3822E99B43F84AB7E088 /* HTMLDocumentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F36E2017AA44276AF9D32D42BB49EDA6 /* HTMLEntities.m in Sources */ = {isa = PBXBuildFile; fileRef = 5804C12DFE3A788A66A3B937ACAF8102 /* HTMLEntities.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F7E33DF2F011D291A144646E90571982 /* HTMLSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 80114FB8E329A1330E0893E02E5E71F6 /* HTMLSelector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FB344A1C1222F3FDD8031B42C20292EC /* HTMLSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 89A628C7ED39C338B6EEC67C561134EF /* HTMLSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FBE2CEBD95DBCF60367CE505238F00C4 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = E175BBD345C7527685453240001FC983 /* Error.swift */; };
+		FBF16500160A14D1DF7FD43A501D5722 /* HTMLString.h in Headers */ = {isa = PBXBuildFile; fileRef = 682226D8A53D1BC876BD9348F29E7874 /* HTMLString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7DB58B85ADEB828B50C616D34CBA5664 /* PBXContainerItemProxy */ = {
+		960C5204C5D9E708EE3E620AE28D3A51 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24D5F77CE75C6E4DF079CD3597E690A7;
+			remoteInfo = HTMLReader;
+		};
+		F0B9D915239862473599283C0709DC9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -31,31 +81,79 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00DEBD0477C3D153A898F502AEF5285D /* HTMLReader-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "HTMLReader-Info.plist"; sourceTree = "<group>"; };
 		0296C4C6E6FBAEA5F2C3596F65D793F8 /* Pods-AppleNews-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AppleNews-dummy.m"; sourceTree = "<group>"; };
+		04BE803FBEB166B4D7344E2FD0FAA60C /* HTMLReader-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HTMLReader-dummy.m"; sourceTree = "<group>"; };
+		08745B0773A5AF433AB1BF2B6AD0FD78 /* HTMLElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLElement.m; path = Sources/HTMLElement.m; sourceTree = "<group>"; };
+		11C44C1C11D396527643B0FD510132A8 /* NSString+HTMLEntities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+HTMLEntities.h"; path = "Sources/include/NSString+HTMLEntities.h"; sourceTree = "<group>"; };
+		15F66B0F9BE0FBEDBDA1B8ECBBA1B0E9 /* HTMLTreeEnumerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTreeEnumerator.h; path = Sources/include/HTMLTreeEnumerator.h; sourceTree = "<group>"; };
+		1892C2BFD4B879778DCC4D7693834200 /* HTMLReader.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = HTMLReader.modulemap; sourceTree = "<group>"; };
+		19850AE1C7F5A25E76C9CA2177CC152F /* HTMLQuirksMode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLQuirksMode.h; path = Sources/include/HTMLQuirksMode.h; sourceTree = "<group>"; };
 		1A533567D5C9A5AAE61FB80911060558 /* Pods-AppleNews-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AppleNews-umbrella.h"; sourceTree = "<group>"; };
 		1AB89921831A680421265B26AFD8CADB /* Pods-AppleNews-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AppleNews-frameworks.sh"; sourceTree = "<group>"; };
-		1CC3B823D0E01554CDBE1BC3012917D1 /* SwiftyXMLParser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-prefix.pch"; sourceTree = "<group>"; };
-		21D99917BE19B9B6D121E484E8B28B84 /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = SwiftyXMLParser/Element.swift; sourceTree = "<group>"; };
-		2AA43419C223732DCD37856270F3051F /* SwiftyXMLParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.debug.xcconfig; sourceTree = "<group>"; };
+		23CEF0754FC0C570EB3FB8807370DCDF /* HTMLEntities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLEntities.h; path = Sources/include/HTMLEntities.h; sourceTree = "<group>"; };
+		2ACAE0FE5C39BB2711DEBAD5620D77E9 /* HTMLString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLString.m; path = Sources/HTMLString.m; sourceTree = "<group>"; };
+		2B49BD9F8966A25569708939CD0AB73F /* SwiftyXMLParser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.release.xcconfig; sourceTree = "<group>"; };
+		2DB744FEA578A0856308E54AB49697B6 /* HTMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLNode.m; path = Sources/HTMLNode.m; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		348B01ADF2C70AD9229F6F1A9A4AA581 /* XML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XML.swift; path = SwiftyXMLParser/XML.swift; sourceTree = "<group>"; };
 		39BF9C3E77B7E210442B318005420EE7 /* Pods-AppleNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleNews.debug.xcconfig"; sourceTree = "<group>"; };
+		3DA2914A171DBF8BAE19A942DD625EC0 /* HTMLDocument.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocument.h; path = Sources/include/HTMLDocument.h; sourceTree = "<group>"; };
+		421CC1CBDA6C782B2999A7AD92AC35EF /* HTMLOrderedDictionary.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLOrderedDictionary.h; path = Sources/include/HTMLOrderedDictionary.h; sourceTree = "<group>"; };
 		4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyXMLParser.framework; path = SwiftyXMLParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		495848FFBAB554DB28E729331ED372E5 /* SwiftyXMLParser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyXMLParser.modulemap; sourceTree = "<group>"; };
+		46291276A18AC56FC44C1D652FF76910 /* HTMLTokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizer.h; path = Sources/include/HTMLTokenizer.h; sourceTree = "<group>"; };
+		4941EF9CA1C48E917E3F4F2D3E0FA658 /* HTMLTextNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTextNode.h; path = Sources/include/HTMLTextNode.h; sourceTree = "<group>"; };
+		4F560239A13925DB1B2E1DC421FF43E3 /* SwiftyXMLParser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyXMLParser-dummy.m"; sourceTree = "<group>"; };
+		4F6E0B69C1B14BB3C8D501812338D4ED /* HTMLPreprocessedInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLPreprocessedInputStream.m; path = Sources/HTMLPreprocessedInputStream.m; sourceTree = "<group>"; };
+		4FC5E7783816CC6CE5A11638FA73B0F5 /* HTMLReader-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLReader-umbrella.h"; sourceTree = "<group>"; };
+		579563F145D2DE9F72A574D81D6EFCE7 /* HTMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNode.h; path = Sources/include/HTMLNode.h; sourceTree = "<group>"; };
+		5804C12DFE3A788A66A3B937ACAF8102 /* HTMLEntities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLEntities.m; path = Sources/HTMLEntities.m; sourceTree = "<group>"; };
+		5861F971EF9E0180CF61088F9E54479E /* SwiftyXMLParser-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-umbrella.h"; sourceTree = "<group>"; };
 		58877CC4040F270D962DAF524B1CBFF0 /* Pods-AppleNews-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AppleNews-acknowledgements.markdown"; sourceTree = "<group>"; };
+		598EE45AE9D45DDE5E479E781012C3DA /* HTMLReader-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HTMLReader-prefix.pch"; sourceTree = "<group>"; };
+		5A14ACFB9E817B98860057718954CA85 /* HTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLParser.m; path = Sources/HTMLParser.m; sourceTree = "<group>"; };
+		5DC5795743B511D14B6DA8D984566DE3 /* HTMLDocument+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "HTMLDocument+Private.h"; path = "Sources/include/HTMLDocument+Private.h"; sourceTree = "<group>"; };
 		5F0FCC7E65825F61BD4FFC6E44DE1966 /* Pods-AppleNews-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppleNews-acknowledgements.plist"; sourceTree = "<group>"; };
-		7619FCCA4760E8A8C2E1A7187A29A71A /* SwiftyXMLParser-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyXMLParser-Info.plist"; sourceTree = "<group>"; };
-		7EE4CF8B9321DBE26452E3F299BE97E7 /* SwiftyXMLParser-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyXMLParser-dummy.m"; sourceTree = "<group>"; };
-		8B9E077EC10731528751E2A28A26CA04 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = SwiftyXMLParser/Error.swift; sourceTree = "<group>"; };
-		8D7339FE2445C180D41FF4D2C0266E02 /* SwiftyXMLParser-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-umbrella.h"; sourceTree = "<group>"; };
+		66124FF365805413E7E69686CA07E4D3 /* SwiftyXMLParser-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftyXMLParser-Info.plist"; sourceTree = "<group>"; };
+		669F50CAE9D59A4E3D6F3BDB4BE7FD51 /* NSString+HTMLEntities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+HTMLEntities.m"; path = "Sources/NSString+HTMLEntities.m"; sourceTree = "<group>"; };
+		682226D8A53D1BC876BD9348F29E7874 /* HTMLString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLString.h; path = Sources/include/HTMLString.h; sourceTree = "<group>"; };
+		714CEBA982E12C7715F9F3C3EB3E6816 /* HTMLEncoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLEncoding.h; path = Sources/include/HTMLEncoding.h; sourceTree = "<group>"; };
+		74903102E82D44E8BB635CBD6920B5DF /* HTMLDocumentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocumentType.m; path = Sources/HTMLDocumentType.m; sourceTree = "<group>"; };
+		7587F33E3EEDC3AD0657DAE7E9CAC582 /* XML.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XML.swift; path = SwiftyXMLParser/XML.swift; sourceTree = "<group>"; };
+		76EAC70E0F893869651441714DC0B995 /* HTMLEncoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLEncoding.m; path = Sources/HTMLEncoding.m; sourceTree = "<group>"; };
+		7A516A040BBCD8FC54BC007859954A4B /* HTMLNamespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLNamespace.h; path = Sources/include/HTMLNamespace.h; sourceTree = "<group>"; };
+		7C41172EB3FBC986CC35F98CF5024EF4 /* HTMLSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSerialization.h; path = Sources/include/HTMLSerialization.h; sourceTree = "<group>"; };
+		7C9EC10A88A884C0849E6A7C27FE49DA /* HTMLTextNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTextNode.m; path = Sources/HTMLTextNode.m; sourceTree = "<group>"; };
+		80114FB8E329A1330E0893E02E5E71F6 /* HTMLSelector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLSelector.m; path = Sources/HTMLSelector.m; sourceTree = "<group>"; };
+		889A2BC0469EE6855D7AF9C222660BE1 /* HTMLReader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLReader.h; path = Sources/include/HTMLReader.h; sourceTree = "<group>"; };
+		89A628C7ED39C338B6EEC67C561134EF /* HTMLSelector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSelector.h; path = Sources/include/HTMLSelector.h; sourceTree = "<group>"; };
+		902772F660E058404920495280DF334C /* HTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLParser.h; path = Sources/include/HTMLParser.h; sourceTree = "<group>"; };
+		91A16F59B074E02A57D2F7894E78ED6C /* HTMLSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLSupport.h; path = Sources/include/HTMLSupport.h; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F95BB9E687B78C722DF6A2D746E474D /* HTMLTokenizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTokenizer.m; path = Sources/HTMLTokenizer.m; sourceTree = "<group>"; };
+		A04DE63F101B1D9F05065D613076E63B /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SwiftyXMLParser/Parser.swift; sourceTree = "<group>"; };
+		A0C6A6538103AAD33BE15282FA3D2EAB /* HTMLElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLElement.h; path = Sources/include/HTMLElement.h; sourceTree = "<group>"; };
 		A2C0D7E8A91B5F778E34C678B0D3C1D5 /* Pods-AppleNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleNews.release.xcconfig"; sourceTree = "<group>"; };
-		BDB0D45D0F490630A02507BD8818E1A0 /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SwiftyXMLParser/Parser.swift; sourceTree = "<group>"; };
+		A63BCEF6D7F8B8707FECA75F7FC16669 /* SwiftyXMLParser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftyXMLParser.modulemap; sourceTree = "<group>"; };
+		AEFD758D7AC7375F9834D18E3475B7F0 /* HTMLSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLSerialization.m; path = Sources/HTMLSerialization.m; sourceTree = "<group>"; };
+		AF0D59E1547D4C06ACD2AE26CD8B2053 /* HTMLTokenizerState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLTokenizerState.h; path = Sources/include/HTMLTokenizerState.h; sourceTree = "<group>"; };
+		BD038E4F155D90E04037CD0767230B1C /* HTMLOrderedDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLOrderedDictionary.m; path = Sources/HTMLOrderedDictionary.m; sourceTree = "<group>"; };
+		C24C9CDADE3B32DB5C1FE0021131D64E /* HTMLDocument.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLDocument.m; path = Sources/HTMLDocument.m; sourceTree = "<group>"; };
 		C5988F07D937954530A429FF21D257FA /* Pods_AppleNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_AppleNews.framework; path = "Pods-AppleNews.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84F45B39EAC91FED3C767F3F95B08B9 /* HTMLReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = HTMLReader.framework; path = HTMLReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8795C9B5929429E8177FB12A816B15B /* Pods-AppleNews-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppleNews-Info.plist"; sourceTree = "<group>"; };
-		D474480C25F32C1C7B1D32EE9DF2EC4F /* Accessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Accessor.swift; path = SwiftyXMLParser/Accessor.swift; sourceTree = "<group>"; };
-		DB8D9A56885D9EC2522013C8063763EC /* SwiftyXMLParser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.release.xcconfig; sourceTree = "<group>"; };
+		D5CAF335C918325673F46C0FAF284208 /* HTMLComment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLComment.h; path = Sources/include/HTMLComment.h; sourceTree = "<group>"; };
+		DC16750635DA39FAC706C69A26918A26 /* SwiftyXMLParser-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftyXMLParser-prefix.pch"; sourceTree = "<group>"; };
+		DFC70479A9EE3822E99B43F84AB7E088 /* HTMLDocumentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLDocumentType.h; path = Sources/include/HTMLDocumentType.h; sourceTree = "<group>"; };
+		E175BBD345C7527685453240001FC983 /* Error.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Error.swift; path = SwiftyXMLParser/Error.swift; sourceTree = "<group>"; };
+		E196424BB07E7D7C5CE832D7D439E384 /* HTMLTreeEnumerator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLTreeEnumerator.m; path = Sources/HTMLTreeEnumerator.m; sourceTree = "<group>"; };
 		E26FE74D7BFE0D2F1614C8B2B979104D /* Pods-AppleNews.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AppleNews.modulemap"; sourceTree = "<group>"; };
+		E43C45CF1F7EBDC6FA0634890944E9E0 /* HTMLComment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTMLComment.m; path = Sources/HTMLComment.m; sourceTree = "<group>"; };
+		EB0B411ADEDE34671D34700FBF7AD0D7 /* HTMLReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMLReader.debug.xcconfig; sourceTree = "<group>"; };
+		EFB4CB98DDC666D92A5CDA3DA7C83286 /* HTMLPreprocessedInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HTMLPreprocessedInputStream.h; path = Sources/include/HTMLPreprocessedInputStream.h; sourceTree = "<group>"; };
+		F6FC1DFB0FC194AC07EF6D8FBAEA8BFD /* Accessor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Accessor.swift; path = SwiftyXMLParser/Accessor.swift; sourceTree = "<group>"; };
+		F97E4ED244A787017E78689B8DC6BB5E /* SwiftyXMLParser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftyXMLParser.debug.xcconfig; sourceTree = "<group>"; };
+		FB4EC84998E0E307AD6756D452B9C23C /* Element.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Element.swift; path = SwiftyXMLParser/Element.swift; sourceTree = "<group>"; };
+		FCC4FEDA00F8B1E12FC1F442B53C5F9C /* HTMLReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HTMLReader.release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,61 +165,52 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D1D697B97D00E7F9C0CA5646EB7459B6 /* Frameworks */ = {
+		A0DE34C5CEDA465C5393CD2DD8B285B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3BE645772834EE7B629E0B3E4E711A7 /* Foundation.framework in Frameworks */,
+				E0E75EBC714489B55C6988346CFD7209 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A7A5FF10208CE26595F5F2388D4D4903 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC584D22F0B8236725F8393C85B54E28 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08EF4BFD65A5ED1BDB336A2581FC203D /* Support Files */ = {
+		4AE5B695B60C85557306C40C55598077 /* SwiftyXMLParser */ = {
 			isa = PBXGroup;
 			children = (
-				495848FFBAB554DB28E729331ED372E5 /* SwiftyXMLParser.modulemap */,
-				7EE4CF8B9321DBE26452E3F299BE97E7 /* SwiftyXMLParser-dummy.m */,
-				7619FCCA4760E8A8C2E1A7187A29A71A /* SwiftyXMLParser-Info.plist */,
-				1CC3B823D0E01554CDBE1BC3012917D1 /* SwiftyXMLParser-prefix.pch */,
-				8D7339FE2445C180D41FF4D2C0266E02 /* SwiftyXMLParser-umbrella.h */,
-				2AA43419C223732DCD37856270F3051F /* SwiftyXMLParser.debug.xcconfig */,
-				DB8D9A56885D9EC2522013C8063763EC /* SwiftyXMLParser.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftyXMLParser";
-			sourceTree = "<group>";
-		};
-		3D9F48E9D0D1DA06FE770A20D8DCC142 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				C5988F07D937954530A429FF21D257FA /* Pods_AppleNews.framework */,
-				4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		46D5621458D926A5EA9B485EF433FCFC /* SwiftyXMLParser */ = {
-			isa = PBXGroup;
-			children = (
-				D474480C25F32C1C7B1D32EE9DF2EC4F /* Accessor.swift */,
-				21D99917BE19B9B6D121E484E8B28B84 /* Element.swift */,
-				8B9E077EC10731528751E2A28A26CA04 /* Error.swift */,
-				BDB0D45D0F490630A02507BD8818E1A0 /* Parser.swift */,
-				348B01ADF2C70AD9229F6F1A9A4AA581 /* XML.swift */,
-				08EF4BFD65A5ED1BDB336A2581FC203D /* Support Files */,
+				F6FC1DFB0FC194AC07EF6D8FBAEA8BFD /* Accessor.swift */,
+				FB4EC84998E0E307AD6756D452B9C23C /* Element.swift */,
+				E175BBD345C7527685453240001FC983 /* Error.swift */,
+				A04DE63F101B1D9F05065D613076E63B /* Parser.swift */,
+				7587F33E3EEDC3AD0657DAE7E9CAC582 /* XML.swift */,
+				4FBA50D1F530B07AC115795F297F3AC7 /* Support Files */,
 			);
 			name = SwiftyXMLParser;
 			path = SwiftyXMLParser;
 			sourceTree = "<group>";
 		};
-		504318E926D7B6F4CC097836C37536F8 /* Pods */ = {
+		4FBA50D1F530B07AC115795F297F3AC7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				46D5621458D926A5EA9B485EF433FCFC /* SwiftyXMLParser */,
+				A63BCEF6D7F8B8707FECA75F7FC16669 /* SwiftyXMLParser.modulemap */,
+				4F560239A13925DB1B2E1DC421FF43E3 /* SwiftyXMLParser-dummy.m */,
+				66124FF365805413E7E69686CA07E4D3 /* SwiftyXMLParser-Info.plist */,
+				DC16750635DA39FAC706C69A26918A26 /* SwiftyXMLParser-prefix.pch */,
+				5861F971EF9E0180CF61088F9E54479E /* SwiftyXMLParser-umbrella.h */,
+				F97E4ED244A787017E78689B8DC6BB5E /* SwiftyXMLParser.debug.xcconfig */,
+				2B49BD9F8966A25569708939CD0AB73F /* SwiftyXMLParser.release.xcconfig */,
 			);
-			name = Pods;
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyXMLParser";
 			sourceTree = "<group>";
 		};
 		551BF8FA62D6062D9FA6C4E5C56B0BB4 /* Pods-AppleNews */ = {
@@ -141,6 +230,25 @@
 			path = "Target Support Files/Pods-AppleNews";
 			sourceTree = "<group>";
 		};
+		8DE3BF073A4FC18071489D81B875812D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FDE3D6C38487EDF52D310B234D7BD535 /* HTMLReader */,
+				4AE5B695B60C85557306C40C55598077 /* SwiftyXMLParser */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		93087591C69311A11DC148B63CBAA645 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C84F45B39EAC91FED3C767F3F95B08B9 /* HTMLReader.framework */,
+				C5988F07D937954530A429FF21D257FA /* Pods_AppleNews.framework */,
+				4232468C2A600E06589CDB95C9D2FF29 /* SwiftyXMLParser.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,13 +257,28 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		C32300A9B52C4198E625753362492DD5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1892C2BFD4B879778DCC4D7693834200 /* HTMLReader.modulemap */,
+				04BE803FBEB166B4D7344E2FD0FAA60C /* HTMLReader-dummy.m */,
+				00DEBD0477C3D153A898F502AEF5285D /* HTMLReader-Info.plist */,
+				598EE45AE9D45DDE5E479E781012C3DA /* HTMLReader-prefix.pch */,
+				4FC5E7783816CC6CE5A11638FA73B0F5 /* HTMLReader-umbrella.h */,
+				EB0B411ADEDE34671D34700FBF7AD0D7 /* HTMLReader.debug.xcconfig */,
+				FCC4FEDA00F8B1E12FC1F442B53C5F9C /* HTMLReader.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HTMLReader";
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				504318E926D7B6F4CC097836C37536F8 /* Pods */,
-				3D9F48E9D0D1DA06FE770A20D8DCC142 /* Products */,
+				8DE3BF073A4FC18071489D81B875812D /* Pods */,
+				93087591C69311A11DC148B63CBAA645 /* Products */,
 				DC6D6A5701599A87D2DD41E6B218C819 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -176,9 +299,89 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		FDE3D6C38487EDF52D310B234D7BD535 /* HTMLReader */ = {
+			isa = PBXGroup;
+			children = (
+				D5CAF335C918325673F46C0FAF284208 /* HTMLComment.h */,
+				E43C45CF1F7EBDC6FA0634890944E9E0 /* HTMLComment.m */,
+				3DA2914A171DBF8BAE19A942DD625EC0 /* HTMLDocument.h */,
+				C24C9CDADE3B32DB5C1FE0021131D64E /* HTMLDocument.m */,
+				5DC5795743B511D14B6DA8D984566DE3 /* HTMLDocument+Private.h */,
+				DFC70479A9EE3822E99B43F84AB7E088 /* HTMLDocumentType.h */,
+				74903102E82D44E8BB635CBD6920B5DF /* HTMLDocumentType.m */,
+				A0C6A6538103AAD33BE15282FA3D2EAB /* HTMLElement.h */,
+				08745B0773A5AF433AB1BF2B6AD0FD78 /* HTMLElement.m */,
+				714CEBA982E12C7715F9F3C3EB3E6816 /* HTMLEncoding.h */,
+				76EAC70E0F893869651441714DC0B995 /* HTMLEncoding.m */,
+				23CEF0754FC0C570EB3FB8807370DCDF /* HTMLEntities.h */,
+				5804C12DFE3A788A66A3B937ACAF8102 /* HTMLEntities.m */,
+				7A516A040BBCD8FC54BC007859954A4B /* HTMLNamespace.h */,
+				579563F145D2DE9F72A574D81D6EFCE7 /* HTMLNode.h */,
+				2DB744FEA578A0856308E54AB49697B6 /* HTMLNode.m */,
+				421CC1CBDA6C782B2999A7AD92AC35EF /* HTMLOrderedDictionary.h */,
+				BD038E4F155D90E04037CD0767230B1C /* HTMLOrderedDictionary.m */,
+				902772F660E058404920495280DF334C /* HTMLParser.h */,
+				5A14ACFB9E817B98860057718954CA85 /* HTMLParser.m */,
+				EFB4CB98DDC666D92A5CDA3DA7C83286 /* HTMLPreprocessedInputStream.h */,
+				4F6E0B69C1B14BB3C8D501812338D4ED /* HTMLPreprocessedInputStream.m */,
+				19850AE1C7F5A25E76C9CA2177CC152F /* HTMLQuirksMode.h */,
+				889A2BC0469EE6855D7AF9C222660BE1 /* HTMLReader.h */,
+				89A628C7ED39C338B6EEC67C561134EF /* HTMLSelector.h */,
+				80114FB8E329A1330E0893E02E5E71F6 /* HTMLSelector.m */,
+				7C41172EB3FBC986CC35F98CF5024EF4 /* HTMLSerialization.h */,
+				AEFD758D7AC7375F9834D18E3475B7F0 /* HTMLSerialization.m */,
+				682226D8A53D1BC876BD9348F29E7874 /* HTMLString.h */,
+				2ACAE0FE5C39BB2711DEBAD5620D77E9 /* HTMLString.m */,
+				91A16F59B074E02A57D2F7894E78ED6C /* HTMLSupport.h */,
+				4941EF9CA1C48E917E3F4F2D3E0FA658 /* HTMLTextNode.h */,
+				7C9EC10A88A884C0849E6A7C27FE49DA /* HTMLTextNode.m */,
+				46291276A18AC56FC44C1D652FF76910 /* HTMLTokenizer.h */,
+				9F95BB9E687B78C722DF6A2D746E474D /* HTMLTokenizer.m */,
+				AF0D59E1547D4C06ACD2AE26CD8B2053 /* HTMLTokenizerState.h */,
+				15F66B0F9BE0FBEDBDA1B8ECBBA1B0E9 /* HTMLTreeEnumerator.h */,
+				E196424BB07E7D7C5CE832D7D439E384 /* HTMLTreeEnumerator.m */,
+				11C44C1C11D396527643B0FD510132A8 /* NSString+HTMLEntities.h */,
+				669F50CAE9D59A4E3D6F3BDB4BE7FD51 /* NSString+HTMLEntities.m */,
+				C32300A9B52C4198E625753362492DD5 /* Support Files */,
+			);
+			name = HTMLReader;
+			path = HTMLReader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		2D1946E358BCDBDFC5A2A074F8F12CA3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				86DB6C1F5106AEC73E4F7E4228D5F051 /* HTMLComment.h in Headers */,
+				1B17E9C3E151E9488369B1DDF63E34B8 /* HTMLDocument+Private.h in Headers */,
+				B00A40D74201EFDA579A64AFA6B32431 /* HTMLDocument.h in Headers */,
+				F2A65324CC849DBCEB9B1C59C769399A /* HTMLDocumentType.h in Headers */,
+				EE4F4E9130FD8708B6C0BF436A9F0896 /* HTMLElement.h in Headers */,
+				B15E720191778E11AC95AF0BBF2BF155 /* HTMLEncoding.h in Headers */,
+				C63CA08D82F63C2FB36AF0339E5BC164 /* HTMLEntities.h in Headers */,
+				C9E38AAD0A1832216FCBF8F10B6EEDF9 /* HTMLNamespace.h in Headers */,
+				68C8D815242E4977F631DC7D67574FF4 /* HTMLNode.h in Headers */,
+				54E41ED938AF401376BA5D4D5014DD05 /* HTMLOrderedDictionary.h in Headers */,
+				A1CF3B55793FC2AD18839B2619CFDA3E /* HTMLParser.h in Headers */,
+				0BF4F31CE48719EA7CCE516279E54FD7 /* HTMLPreprocessedInputStream.h in Headers */,
+				BE7A802C6DBE4D41FA20DAE3E4DA6651 /* HTMLQuirksMode.h in Headers */,
+				4F63C4523FDF4EDB08E3D8C8B8F0E35F /* HTMLReader-umbrella.h in Headers */,
+				AAA2A0A074CB69E5C6F4A542062C9EBF /* HTMLReader.h in Headers */,
+				FB344A1C1222F3FDD8031B42C20292EC /* HTMLSelector.h in Headers */,
+				103F88C0202A262E787249A242DD6844 /* HTMLSerialization.h in Headers */,
+				FBF16500160A14D1DF7FD43A501D5722 /* HTMLString.h in Headers */,
+				71DB0451E7184848424AF3E0B6F889E6 /* HTMLSupport.h in Headers */,
+				677B97FCADC00CFD1BC510D26B82F81D /* HTMLTextNode.h in Headers */,
+				ECF29D47F8E14CA110B096B61595B5A3 /* HTMLTokenizer.h in Headers */,
+				B11878EE8D8451C33CEF3E17605D8598 /* HTMLTokenizerState.h in Headers */,
+				BF23F225A1FDAECF73AC7B06031B6FDD /* HTMLTreeEnumerator.h in Headers */,
+				AD0BC21B45B0FF9FDAD4C69D15D1FCA1 /* NSString+HTMLEntities.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7F3F31EFAF5C023640C3B60F1E0C35DF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -187,17 +390,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C4089D0E14B708ABA45290CCE33DB4C2 /* Headers */ = {
+		A824973B57A4DCAEDEA08E3D7C967E5A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B181461877B67DF67E67D59F80B1CCC8 /* Pods-AppleNews-umbrella.h in Headers */,
+				5BB9AE842C3408BCA1681370BCCA4AA6 /* Pods-AppleNews-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		24D5F77CE75C6E4DF079CD3597E690A7 /* HTMLReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 248CC13929E8360D1A6A36282D5D6D58 /* Build configuration list for PBXNativeTarget "HTMLReader" */;
+			buildPhases = (
+				2D1946E358BCDBDFC5A2A074F8F12CA3 /* Headers */,
+				444E64A31346DCCD90CF527EEF3B26F9 /* Sources */,
+				A0DE34C5CEDA465C5393CD2DD8B285B2 /* Frameworks */,
+				46EAA1DB7CE2A290628092607F792FD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HTMLReader;
+			productName = HTMLReader;
+			productReference = C84F45B39EAC91FED3C767F3F95B08B9 /* HTMLReader.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 673F526225EE4358878EFF12A9C39536 /* Build configuration list for PBXNativeTarget "SwiftyXMLParser" */;
@@ -218,17 +439,18 @@
 		};
 		EAFC553E9302A42779ABB94A7D7F65E1 /* Pods-AppleNews */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9E01E99221157FACC20528D7DA043B37 /* Build configuration list for PBXNativeTarget "Pods-AppleNews" */;
+			buildConfigurationList = DBB1C8DBBF647C64460AC3B4D4942823 /* Build configuration list for PBXNativeTarget "Pods-AppleNews" */;
 			buildPhases = (
-				C4089D0E14B708ABA45290CCE33DB4C2 /* Headers */,
-				5EA600BA6179D2B99C8F6558FC3973B2 /* Sources */,
-				D1D697B97D00E7F9C0CA5646EB7459B6 /* Frameworks */,
-				B20D93307098758C0D3C0646476F664A /* Resources */,
+				A824973B57A4DCAEDEA08E3D7C967E5A /* Headers */,
+				DC70E7F29B8C182147B51CED813777F5 /* Sources */,
+				A7A5FF10208CE26595F5F2388D4D4903 /* Frameworks */,
+				113C99DAD40DB957DD5BA9878FE4CC02 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5B07F70B02F4DD42F3F22D9CA0DD4543 /* PBXTargetDependency */,
+				9C9CCFC9C4D9FEB51C2DC4F9CDD27FB1 /* PBXTargetDependency */,
+				1277AB389EFE15A026EA9151CE8990AC /* PBXTargetDependency */,
 			);
 			name = "Pods-AppleNews";
 			productName = "Pods-AppleNews";
@@ -253,10 +475,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 3D9F48E9D0D1DA06FE770A20D8DCC142 /* Products */;
+			productRefGroup = 93087591C69311A11DC148B63CBAA645 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				24D5F77CE75C6E4DF079CD3597E690A7 /* HTMLReader */,
 				EAFC553E9302A42779ABB94A7D7F65E1 /* Pods-AppleNews */,
 				C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */,
 			);
@@ -271,7 +494,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B20D93307098758C0D3C0646476F664A /* Resources */ = {
+		113C99DAD40DB957DD5BA9878FE4CC02 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46EAA1DB7CE2A290628092607F792FD9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,6 +511,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		444E64A31346DCCD90CF527EEF3B26F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC48A804DA58BBE22718103BF3CE31D8 /* HTMLComment.m in Sources */,
+				E2F7653AA2E1038FEF4B99CE2AAC3BCB /* HTMLDocument.m in Sources */,
+				A34A4AD853E2FC8E0F9F0817CC82D707 /* HTMLDocumentType.m in Sources */,
+				A77F76749A1C7207745F1553C319ADF6 /* HTMLElement.m in Sources */,
+				0268370A646DF56956ECF5A880B31D7B /* HTMLEncoding.m in Sources */,
+				F36E2017AA44276AF9D32D42BB49EDA6 /* HTMLEntities.m in Sources */,
+				979E10A0F86DE4F92CABE6DF5AB8BB57 /* HTMLNode.m in Sources */,
+				505D742D02634BECCC829FBA6490E6B5 /* HTMLOrderedDictionary.m in Sources */,
+				5BEB0548A0910F2EC3CEA4A97EFE448D /* HTMLParser.m in Sources */,
+				4E17BB34D1FB43BFCA78458A5ED73D14 /* HTMLPreprocessedInputStream.m in Sources */,
+				52A943CE8B7D2EA75194ACA83D751B07 /* HTMLReader-dummy.m in Sources */,
+				F7E33DF2F011D291A144646E90571982 /* HTMLSelector.m in Sources */,
+				4E91C27D65BAF14269DB1DB385654F27 /* HTMLSerialization.m in Sources */,
+				A7B6C5CA4D90FD20007976D2FE67D8A6 /* HTMLString.m in Sources */,
+				3A92E4C96777808F7F62C258590F5D5F /* HTMLTextNode.m in Sources */,
+				6A225FB99A4F47F5043F26D3341ED488 /* HTMLTokenizer.m in Sources */,
+				3EF72131DBEE13744EA2F3619660CE3A /* HTMLTreeEnumerator.m in Sources */,
+				3BCDBE227FAC770FE579684F6BBE6851 /* NSString+HTMLEntities.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		46D4D9F8C26D3F8C900EAF39D5D120AD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -294,26 +549,69 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5EA600BA6179D2B99C8F6558FC3973B2 /* Sources */ = {
+		DC70E7F29B8C182147B51CED813777F5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A461ABD05E28DDC864683AB5E98D3A9 /* Pods-AppleNews-dummy.m in Sources */,
+				E837961C4804E6B734A4E4297FE6DF4B /* Pods-AppleNews-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5B07F70B02F4DD42F3F22D9CA0DD4543 /* PBXTargetDependency */ = {
+		1277AB389EFE15A026EA9151CE8990AC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftyXMLParser;
 			target = C96998A189BC645DB45F2AFFF9D802BD /* SwiftyXMLParser */;
-			targetProxy = 7DB58B85ADEB828B50C616D34CBA5664 /* PBXContainerItemProxy */;
+			targetProxy = F0B9D915239862473599283C0709DC9F /* PBXContainerItemProxy */;
+		};
+		9C9CCFC9C4D9FEB51C2DC4F9CDD27FB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HTMLReader;
+			target = 24D5F77CE75C6E4DF079CD3597E690A7 /* HTMLReader */;
+			targetProxy = 960C5204C5D9E708EE3E620AE28D3A51 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0405B8626A64D5343070AC08E14AF6FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39BF9C3E77B7E210442B318005420EE7 /* Pods-AppleNews.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AppleNews/Pods-AppleNews-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AppleNews/Pods-AppleNews.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -376,7 +674,7 @@
 		};
 		78F2B1CBD7D75290A65EDD0B51E643B4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AA43419C223732DCD37856270F3051F /* SwiftyXMLParser.debug.xcconfig */;
+			baseConfigurationReference = F97E4ED244A787017E78689B8DC6BB5E /* SwiftyXMLParser.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -403,43 +701,6 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		79569AA3BD8A5E6680EBB94AF2F0C822 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39BF9C3E77B7E210442B318005420EE7 /* Pods-AppleNews.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-AppleNews/Pods-AppleNews-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-AppleNews/Pods-AppleNews.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -510,9 +771,44 @@
 			};
 			name = Debug;
 		};
+		820DCC618800D3199B5C6836C3FF4C3D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB0B411ADEDE34671D34700FBF7AD0D7 /* HTMLReader.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLReader/HTMLReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLReader/HTMLReader-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HTMLReader/HTMLReader.modulemap";
+				PRODUCT_MODULE_NAME = HTMLReader;
+				PRODUCT_NAME = HTMLReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		A5C5A8360A20F6C83D953EF72BF48D95 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB8D9A56885D9EC2522013C8063763EC /* SwiftyXMLParser.release.xcconfig */;
+			baseConfigurationReference = 2B49BD9F8966A25569708939CD0AB73F /* SwiftyXMLParser.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -546,7 +842,43 @@
 			};
 			name = Release;
 		};
-		C58BC27E8613C0E1528B4724D3619755 /* Release */ = {
+		E861484E6857845B855CD01E60B320D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCC4FEDA00F8B1E12FC1F442B53C5F9C /* HTMLReader.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/HTMLReader/HTMLReader-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/HTMLReader/HTMLReader-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/HTMLReader/HTMLReader.modulemap";
+				PRODUCT_MODULE_NAME = HTMLReader;
+				PRODUCT_NAME = HTMLReader;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FF19C1EE297EB06A97E348703E16E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A2C0D7E8A91B5F778E34C678B0D3C1D5 /* Pods-AppleNews.release.xcconfig */;
 			buildSettings = {
@@ -587,6 +919,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		248CC13929E8360D1A6A36282D5D6D58 /* Build configuration list for PBXNativeTarget "HTMLReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820DCC618800D3199B5C6836C3FF4C3D /* Debug */,
+				E861484E6857845B855CD01E60B320D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -605,11 +946,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9E01E99221157FACC20528D7DA043B37 /* Build configuration list for PBXNativeTarget "Pods-AppleNews" */ = {
+		DBB1C8DBBF647C64460AC3B4D4942823 /* Build configuration list for PBXNativeTarget "Pods-AppleNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				79569AA3BD8A5E6680EBB94AF2F0C822 /* Debug */,
-				C58BC27E8613C0E1528B4724D3619755 /* Release */,
+				0405B8626A64D5343070AC08E14AF6FD /* Debug */,
+				FF19C1EE297EB06A97E348703E16E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
