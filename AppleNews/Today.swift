@@ -19,13 +19,7 @@ struct Today: View {
     
     init(){
         // To remove all separators including the actual ones:
-        UITableView.appearance().separatorStyle = .none
-        UIScrollView.appearance().backgroundColor = UIColor.secondarySystemBackground
-        
-        //listの追加の下線を消す
-        UITableView.appearance().tableFooterView = UIView()
-        
-        self.articles = Client.getArticle( "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.yahoo.co.jp%2Frss%2Ftopics%2Fit.xml")
+        self.articles = Client.getArticle("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.yahoo.co.jp%2Frss%2Ftopics%2Fit.xml")
     }
     var body: some View {
         VStack {
@@ -37,8 +31,15 @@ struct Today: View {
                                 article(windowWidth:geometry.size.width,title:self.articles[i*2].0,url: self.articles[i*2].1).padding(.trailing,8)
                                 article(windowWidth:geometry.size.width,title:self.articles[(i*2)+1].0,url: self.articles[(i*2)+1].1).padding(.leading,8)
                             }.padding(.top)
-                        }.listRowBackground( Color(UIColor.secondarySystemBackground))
-                        
+                            
+                            
+                        }
+//                        .listRowBackground( Color(UIColor.secondarySystemBackground))
+                        .listStyle(InsetListStyle())
+                    }.onAppear(){
+                        UITableView.appearance().separatorStyle = .none
+                //        UIScrollView.appearance().backgroundColor = UIColor.secondarySystemBackground
+                        UITableView.appearance().separatorColor = .clear
                     }
                     
                 }
