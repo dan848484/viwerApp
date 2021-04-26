@@ -8,13 +8,16 @@ struct ContentView: View {
     
     @ObservedObject var initViewOn:InitialViewMode
     @ObservedObject var prev: PrevButtonPosition
+    @ObservedObject var loadBroker:LoadBloker
     
-    @State var todayMode:Bool = true
+    @State var todayMode:Bool = false
     
     @State var on:Bool = false
     
     @State var showingSite:NSManagedObject?
     @State var showingSite_name = ""//表示しているサイトの名前
+    
+    
     
     @State var webview:WebViewer = WebViewer(url: "https://www.google.com/")
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
@@ -35,6 +38,7 @@ struct ContentView: View {
     
     func back() {
         self.webview.viewer.goBack()
+        self.webview.blockLoading()
     }
     
     
@@ -80,6 +84,7 @@ struct ContentView: View {
                     VStack{//ブラウザの戻るボタン
                         Button(action:{
                             self.back()
+                            
                         }){
                             Circle()
                                 .foregroundColor(Color(UIColor.secondarySystemBackground))
@@ -146,7 +151,14 @@ struct ContentView: View {
                                                             //Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
                                                         }),
                                                         .destructive(Text("Remove"), action:{
-                                                            self.context.delete(self.showingSite!)
+                                                            do{
+                                                                self.context.delete(self.showingSite!)
+                                                                try self.context.save()
+                                                            }catch{
+                                                                print("failed to delete the site : \(error)")
+
+                                                            }
+                                                            
                                                             
                                                         }),
                                                         .cancel(Text("Cancel"))
@@ -168,7 +180,7 @@ struct ContentView: View {
                         //サイトアイコンの生成部分
                         ScrollView(.horizontal,showsIndicators: false){
                             HStack{
-                                
+                                //  button to add a new site
                                 Button(action:{
                                     self.settingModal = true
                                 }){
@@ -184,25 +196,30 @@ struct ContentView: View {
                                     Settings().environment(\.managedObjectContext, self.context)
                                 })
                                 
-                                
-                                Button(action:{
-                                     self.todayMode(mode: true)
-                                    
-                                }){
-                                    Icon(.TODAY)
-                                        .padding(.horizontal, 8)
-                                }
+                                //button below is to temporary unavailable
+//                                Button(action:{
+//                                     self.todayMode(mode: true)
+//
+//                                }){
+//                                    Icon(.TODAY)
+//                                        .padding(.horizontal, 8)
+//                                }
                                 
                                 ForEach(self.sites){ site in
                                     
                                     
                                     Button(action:{
-                                        self.webview   .url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
+                                        
+                                        self.loadBroker.isBloked = false
+                                        
+                                        self.webview.url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
                                         self.showingSite_name =  site.name!
                                         self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                         self.showingSite = site
                                         
                                         self.todayMode(mode: false)
+                                        
+                                        
                                         
                                     }){
                                         Icon(site)
@@ -232,10 +249,15 @@ struct ContentView: View {
             
             //             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
             if self.sites.count != 0 {
-                self.webview   .url = self.sites[0].url ?? "https://www.google.com/"
-                self.showingSite_name = "Today"
-                self.iconBackground = GradientMaker.getTodayColor()
-                self.showingSite = self.sites[0]
+                
+                let initialSite:Sites = self.sites[0]
+                
+                self.webview   .url = initialSite.url ?? "https://www.google.com/"
+                self.showingSite_name = initialSite.name ?? "faile to get site name"
+                self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(initialSite.backgrround))
+                self.showingSite = initialSite
+                self.webview.setBloker(blocker: loadBroker)
+                self.webview.unblockLoading()
                 
             }else{
                 print("登録されているサイトはないです。")
@@ -251,6 +273,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition())
+        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition(), loadBroker: LoadBloker())
     }
 }

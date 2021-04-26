@@ -44,7 +44,7 @@ struct Settings: View {
     init(_ initOn:InitialViewMode){
         self.mode = .INIT
         self.initViewOn = initOn
-        UIScrollView.appearance().backgroundColor = UIColor.white
+//        UIScrollView.appearance().backgroundColor = UIColor.white
     }
     
     init(_ site:NSManagedObject){ // サイトの編集する時のinit
@@ -56,12 +56,12 @@ struct Settings: View {
         //        self.selectOnOpacity[0] = 0
         //        self.selectOnOpacity[self.inputedColorNum] = 1
         self._title = State(initialValue: "Edit") // タイトルをEditにする。1
-        UIScrollView.appearance().backgroundColor = UIColor.white
+//        UIScrollView.appearance().backgroundColor = UIColor.white
     }
     
     init(){
         self.mode = .ADD
-        UIScrollView.appearance().backgroundColor = UIColor.white
+//        UIScrollView.appearance().backgroundColor = UIColor.white
     }
     
     
@@ -69,9 +69,11 @@ struct Settings: View {
     var body: some View {
         GeometryReader{ geometry in
             NavigationView{
+                
                 VStack{
                     
                     Group{
+                        
                         List{
                             
                             Section(header: Text("Site Name")){
@@ -117,106 +119,39 @@ struct Settings: View {
                                                     .foregroundColor(Color.clear)
                                                     .shadow(radius: 3)
                                                     .opacity(self.$selectOnOpacity.wrappedValue[num])
+                                                    
                                             }
                                             
                                         }
-                                    }
+                                    }.padding(.leading, 20)
+                                    .padding(.trailing,40)
                                 }
-                            }
-//                            .listRowBackground(Color(UIColor.secondarySystemBackground))
-                          
-                            Button(action:{
+                                .frame(width: geometry.size.width)
                                 
-                                if(self.inputedName == "" || self.inputedURL == ""){
-                                    return
-                                    
-                                }
-                                
-                                print("initViewの値：\(self.initViewOn.initialMode)")
-                                self.addSite()
-                                if(self.mode == .INIT){
-                                    self.initViewOn.initialMode = false
-                                    
-                                }else if(self.mode == .ADD || self.mode == .EDIT){
-                                    
-                                    if (self.mode == .EDIT){
-                                        //サイトの編集モードの時にボタンを押した時の処理
-                                        print(self.editedObject!)
-                                        
-                                        let newName = self.inputedName
-                                        let newURL = self.inputedURL
-                                        let newIcon = self.inputedColorNum
-                                        
-                                        let siteID = self.editedObject.id! as NSUUID
-                                        
-                                        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Sites")
-                                        fetchRequest.predicate = NSPredicate(format: "id == %@", siteID as CVarArg)
-                                        
-                                        fetchRequest.fetchLimit = 1
-                                        
-                                        do{
-                                            let test = try self.context.fetch(fetchRequest)
-                                            let target =  test[0] as! Sites
-                                            target.name = newName
-                                            target.url = newURL
-                                            target.backgrround = Int64(newIcon)
-                                            print("編集したサイトのIconナンバー：\(newIcon)")
-                                            try self.context.save()
-                                            //
-                                            //                                self.context.refreshAllObjects()
-                                            let fetchRequest:NSFetchRequest<Sites> = NSFetchRequest(entityName: "Sites")
-                                            let fetchData = try self.context.fetch(fetchRequest)
-                                            
-                                            for i in 0..<fetchData.count{
-                                                if(fetchData[i].url! as String == newURL){
-                                                    //なぜか２つサイトが登録されるので、入力したのと同じURLがあったらその時点で（1個目で）削除して、breakして抜けた、
-                                                    self.context.delete(self.editedObject)
-                                                    break
-                                                }
-                                            }
-                                            
-                                            
-                                            
-                                        }catch{
-                                            print(error)
-                                        }
-                                        
-                                        
-                                    }
-                                    
-                                    
-                                    self.presentation.wrappedValue.dismiss()
-                                }
-                                
-                            }){
-                                Text("Add")
-                                    .fontWeight(.bold)
-                                    .frame(width: 302,height: 52)
-                                    .foregroundColor(Color.white)
-                                    .background(Color(UIColor.systemBlue))
-                                    .clipShape(Capsule())
-                                    .shadow(radius: 3)
+                                .offset(x:-30)
                                 
                             }
-                        }
-                        .frame(width: geometry.size.width * 0.9)
+                         
+                         
+                        }.listStyle(InsetGroupedListStyle())
+                       
+                            
+                        self.getButton().offset(y:-40)
+                            
+                      
 
                     }.navigationBarTitle(self.title)
                     
                     
                     
-                }
-            }.background(Color.gray)
-                .onAppear(){
-                //listの追加の下線を消す
-                UITableView.appearance().tableFooterView = UIView()
-                
-                //large titleの色変更
-                //            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor : UIColor(hex: "56627C")]
-                
+                    
+                }.background(Color(UIColor.secondarySystemBackground))
+                .edgesIgnoringSafeArea(.all)
+            
                 
                 
             }
+
             
             
         }
@@ -225,11 +160,101 @@ struct Settings: View {
         
     }
     
+    func getMarginLeft(){
+        
+    }
+    
+    func getButton() -> some View{
+        
+        var buttonText = "Add"
+        switch self.mode {
+        case .ADD:
+            break
+        case .EDIT:
+            buttonText = "Done"
+        case .INIT:
+            break
+        }
+        
+        return Button(action:{
+            
+            if(self.inputedName == "" || self.inputedURL == ""){
+                return
+                
+            }
+            
+            print("initViewの値：\(self.initViewOn.initialMode)")
+            self.addSite()
+            if(self.mode == .INIT){
+                self.initViewOn.initialMode = false
+                
+            }else if(self.mode == .ADD || self.mode == .EDIT){
+                
+                if (self.mode == .EDIT){
+                    //サイトの編集モードの時にボタンを押した時の処理
+                    print(self.editedObject!)
+                    
+                    let newName = self.inputedName
+                    let newURL = self.inputedURL
+                    let newIcon = self.inputedColorNum
+                    
+                    let siteID = self.editedObject.id! as NSUUID
+                    
+                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Sites")
+                    fetchRequest.predicate = NSPredicate(format: "id == %@", siteID as CVarArg)
+                    
+                    fetchRequest.fetchLimit = 1
+                    
+                    do{
+                        let test = try self.context.fetch(fetchRequest)
+                        let target =  test[0] as! Sites
+                        target.name = newName
+                        target.url = newURL
+                        target.backgrround = Int64(newIcon)
+                        print("編集したサイトのIconナンバー：\(newIcon)")
+                        try self.context.save()
+                        //
+                        //                                self.context.refreshAllObjects()
+                        let fetchRequest:NSFetchRequest<Sites> = NSFetchRequest(entityName: "Sites")
+                        let fetchData = try self.context.fetch(fetchRequest)
+                        
+                        for i in 0..<fetchData.count{
+                            if(fetchData[i].url! as String == newURL){
+                                //なぜか２つサイトが登録されるので、入力したのと同じURLがあったらその時点で（1個目で）削除して、breakして抜けた、
+                                self.context.delete(self.editedObject)
+                                break
+                            }
+                        }
+                        
+                        try self.context.save()
+                        
+                    }catch{
+                        print(error)
+                    }
+                    
+                    
+                }
+                
+                
+                self.presentation.wrappedValue.dismiss()
+            }
+            
+        }){
+            Text(buttonText)
+                .fontWeight(.bold)
+                .frame(width: 302,height: 52)
+                .foregroundColor(Color.white)
+                .background(Color(UIColor.systemBlue))
+                .clipShape(Capsule())
+                .shadow(radius: 3)
+            
+        }
+    }
+    
     
     
     func addSite(){
         let newSite = Sites(context: context)
-        print("addSite何回されるのでしょーか")
         newSite.id = UUID()
         newSite.name = inputedName
         newSite.url = inputedURL

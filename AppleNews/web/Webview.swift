@@ -17,9 +17,29 @@ import WebKit
 struct WebViewer: UIViewRepresentable {
     
     var url:String
+    private var bloker:LoadBloker?
     let viewer = WKWebView()
     
+    init(url:String, blocker:LoadBloker){
+        self.url = url
+        self.bloker = blocker
+    }
     
+    init(url:String){
+        self.url = url
+    }
+    
+    mutating func setBloker(blocker:LoadBloker){
+        self.bloker = blocker
+    }
+    
+    mutating func blockLoading(){
+        self.bloker?.isBloked = true
+    }
+    
+    mutating func unblockLoading(){
+        self.bloker?.isBloked = false
+    }
     
     func makeUIView(context: Context) -> WKWebView{
         return self.viewer
@@ -27,26 +47,22 @@ struct WebViewer: UIViewRepresentable {
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
         
-        uiView.load(URLRequest(url: URL(string: self.url)!))
+        if let blocking = self.bloker{
+            
+            if(!blocking.isBloked){
+                uiView.load(URLRequest(url: URL(string: self.url)!))
+                self.bloker?.isBloked  = true
+            }else{
+                print("WKWebView: loading is blocked")
+            }
+        }else{
+            return
+        }
+        
+        
+        
     }
     
-//        func back(){
-//            if self.viwer.canGoBack {
-//                print("go back")
-//                self.viwer.goBack()
-//
-//            }else{
-//                print("Couldn't go back")
-//            }
-//        }
-//
-//        func allowSwipeSwith(){
-//            self.viwer.allowsBackForwardNavigationGestures = true
-//        }
-//
-//        func forbidSwipeSwith(){
-//            self.viwer.allowsBackForwardNavigationGestures = false
-//        }
     
 }
 
@@ -57,6 +73,6 @@ struct Webviewj_Previews: PreviewProvider {
     
     
     static var previews: some View {
-        WebViewer(url: "https://www.google.com/")
+        WebViewer(url: "https://www.google.com/",blocker: LoadBloker())
     }
 }
