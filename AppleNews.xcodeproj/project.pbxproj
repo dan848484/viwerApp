@@ -16,10 +16,12 @@
 		D04BFCE62518D8F200376DCB /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE52518D8F200376DCB /* Client.swift */; };
 		D04BFCE82518E2A300376DCB /* SitesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE72518E2A300376DCB /* SitesConfig.swift */; };
 		D05ECB3C2505060900D707C9 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5624E4693200C8B54C /* Webview.swift */; };
+		D09B0A4626379BF000B2FBC5 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B0A4526379BF000B2FBC5 /* OrderView.swift */; };
 		D0A2384724A73BDA006147E0 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2384624A73BDA006147E0 /* InitialView.swift */; };
 		D0B1403224CD8B65000E4559 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1403124CD8B65000E4559 /* BottomSheetView.swift */; };
 		D0C2FD58251C054700EDAC1C /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C2FD57251C054700EDAC1C /* Today.swift */; };
 		D0C74FD02486842B004B96A9 /* GradientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C74FCF2486842B004B96A9 /* GradientMaker.swift */; };
+		D0C8912826383B27007CA375 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C8912726383B27007CA375 /* CoreDataManager.swift */; };
 		D0D2466326359B280065DA7E /* LoadBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2466226359B280065DA7E /* LoadBlocker.swift */; };
 		D0F38D64245D788C008C1CBD /* AppleNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F38D62245D788C008C1CBD /* AppleNews.xcdatamodeld */; };
 		D0F59E5924E46A9400C8B54C /* PrevButtonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5824E46A9400C8B54C /* PrevButtonPosition.swift */; };
@@ -55,15 +57,17 @@
 		26E2179FAA81D782BBD319E3 /* Pods-AppleNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNews.debug.xcconfig"; path = "Target Support Files/Pods-AppleNews/Pods-AppleNews.debug.xcconfig"; sourceTree = "<group>"; };
 		AE890F84B040CDFBD5DCCD36 /* Pods-AppleNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNews.release.xcconfig"; path = "Target Support Files/Pods-AppleNews/Pods-AppleNews.release.xcconfig"; sourceTree = "<group>"; };
 		D014BC322503EBB6000D72AE /* UIColorHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
-		D014BC342503EBF0000D72AE /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = AppleNews/Icon.swift; sourceTree = SOURCE_ROOT; };
+		D014BC342503EBF0000D72AE /* Icon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Icon.swift; path = AppleNews/components/Icon.swift; sourceTree = SOURCE_ROOT; };
 		D014BC362503EC28000D72AE /* Sites+Ectentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sites+Ectentions.swift"; sourceTree = "<group>"; };
 		D035A9802538862500B86FB8 /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
 		D04BFCE52518D8F200376DCB /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		D04BFCE72518E2A300376DCB /* SitesConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesConfig.swift; sourceTree = "<group>"; };
+		D09B0A4526379BF000B2FBC5 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		D0A2384624A73BDA006147E0 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		D0B1403124CD8B65000E4559 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		D0C2FD57251C054700EDAC1C /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
 		D0C74FCF2486842B004B96A9 /* GradientMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
+		D0C8912726383B27007CA375 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D0D2466226359B280065DA7E /* LoadBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadBlocker.swift; sourceTree = "<group>"; };
 		D0F38D63245D788C008C1CBD /* AppleNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleNews.xcdatamodel; sourceTree = "<group>"; };
 		D0F59E5524E4692800C8B54C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -138,6 +142,35 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		D09B0A4226379B7A00B2FBC5 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				D014BC342503EBF0000D72AE /* Icon.swift */,
+				D035A9802538862500B86FB8 /* SFSafariView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		D09B0A4326379B9A00B2FBC5 /* others */ = {
+			isa = PBXGroup;
+			children = (
+				D0C74FCF2486842B004B96A9 /* GradientMaker.swift */,
+				D014BC322503EBB6000D72AE /* UIColorHex.swift */,
+			);
+			path = others;
+			sourceTree = "<group>";
+		};
+		D09B0A4426379BAB00B2FBC5 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				D0C2FD57251C054700EDAC1C /* Today.swift */,
+				D0A2384624A73BDA006147E0 /* InitialView.swift */,
+				D0F59E5524E4692800C8B54C /* Settings.swift */,
+				D09B0A4526379BF000B2FBC5 /* OrderView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		D0D2465926359A970065DA7E /* handling */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,26 +221,23 @@
 		D0FA10B1245C2A2C0049DC32 /* AppleNews */ = {
 			isa = PBXGroup;
 			children = (
+				D09B0A4426379BAB00B2FBC5 /* views */,
+				D09B0A4326379B9A00B2FBC5 /* others */,
+				D09B0A4226379B7A00B2FBC5 /* components */,
 				D0D2465926359A970065DA7E /* handling */,
 				D04BFCE42518D8C900376DCB /* Connection */,
 				D0F59E5724E46A4300C8B54C /* Modal */,
 				D0F59E5424E468DC00C8B54C /* web */,
-				D014BC342503EBF0000D72AE /* Icon.swift */,
-				D035A9802538862500B86FB8 /* SFSafariView.swift */,
-				D0C2FD57251C054700EDAC1C /* Today.swift */,
-				D0A2384624A73BDA006147E0 /* InitialView.swift */,
-				D0F59E5524E4692800C8B54C /* Settings.swift */,
 				D014BC362503EC28000D72AE /* Sites+Ectentions.swift */,
-				D014BC322503EBB6000D72AE /* UIColorHex.swift */,
 				D0FA10B2245C2A2C0049DC32 /* AppDelegate.swift */,
 				D0FA10B4245C2A2C0049DC32 /* SceneDelegate.swift */,
 				D0FA10B9245C2A2C0049DC32 /* ContentView.swift */,
-				D0C74FCF2486842B004B96A9 /* GradientMaker.swift */,
 				D0FA10BB245C2A310049DC32 /* Assets.xcassets */,
 				D0FA10C0245C2A310049DC32 /* LaunchScreen.storyboard */,
 				D0FA10C3245C2A310049DC32 /* Info.plist */,
 				D0F38D62245D788C008C1CBD /* AppleNews.xcdatamodeld */,
 				D0FA10BD245C2A310049DC32 /* Preview Content */,
+				D0C8912726383B27007CA375 /* CoreDataManager.swift */,
 			);
 			path = AppleNews;
 			sourceTree = "<group>";
@@ -417,6 +447,7 @@
 				D04BFCE62518D8F200376DCB /* Client.swift in Sources */,
 				D014BC372503EC29000D72AE /* Sites+Ectentions.swift in Sources */,
 				D035A9812538862500B86FB8 /* SFSafariView.swift in Sources */,
+				D09B0A4626379BF000B2FBC5 /* OrderView.swift in Sources */,
 				D014BC3A2503EC84000D72AE /* Settings.swift in Sources */,
 				D0FA10B3245C2A2C0049DC32 /* AppDelegate.swift in Sources */,
 				D014BC352503EBF0000D72AE /* Icon.swift in Sources */,
@@ -430,6 +461,7 @@
 				D05ECB3C2505060900D707C9 /* Webview.swift in Sources */,
 				D0C74FD02486842B004B96A9 /* GradientMaker.swift in Sources */,
 				D0B1403224CD8B65000E4559 /* BottomSheetView.swift in Sources */,
+				D0C8912826383B27007CA375 /* CoreDataManager.swift in Sources */,
 				D014BC332503EBB6000D72AE /* UIColorHex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

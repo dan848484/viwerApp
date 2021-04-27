@@ -150,6 +150,9 @@ struct ContentView: View {
                                                             self.EdittingModal = true
                                                             //Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
                                                         }),
+                                                        Alert.Button.default(Text("Change The Order"),action: {
+                                                            
+                                                        }),
                                                         .destructive(Text("Remove"), action:{
                                                             do{
                                                                 self.context.delete(self.showingSite!)
@@ -247,7 +250,9 @@ struct ContentView: View {
         .onAppear{
             //            print(Client.getArticle( "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.yahoo.co.jp%2Frss%2Ftopics%2Fit.xml"))
             
-            //             self.webview .allowSwipeSwith()//スワイプでページ切り替えを許可する
+            
+            print(CoredataManager().getData())
+            
             if self.sites.count != 0 {
                 
                 let initialSite:Sites = self.sites[0]
