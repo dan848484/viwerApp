@@ -8,47 +8,58 @@
 
 import Foundation
 import CoreData
+import SwiftUI
 
 class CoredataManager{
-    let persistentContainer: NSPersistentContainer
-  
+    var context:NSManagedObjectContext
+    
     
     init(){
-        self.persistentContainer = NSPersistentContainer(name: "AppleNews")
-        self.persistentContainer.loadPersistentStores(completionHandler: {(description, error) in
-            if let error = error {
-                fatalError("CoreData: could not get datas from CoreData")
-            }
-        })
-        
         print("    ")
         print("---------------------------------")
         print("---Initialized CoreDataManager---")
         print("---------------------------------")
         print("    ")
-        
-        
+        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
+    
     func deleteSite(site: Sites){
-        self.persistentContainer.viewContext.delete(site)
+        self.context.delete(site)
+        print("deleted site : \(site.name)")
         do{
-            try self.persistentContainer.viewContext.save()
+            try self.context.save()
         }catch{
             print("failed to delete site : \(error)")
         }
     }
     
+    func update(site:Sites,name:String,url:String,background:Int,order:Int){
+        site.name = name
+        site.url = url
+        site.backgrround = Int64(background)
+        site.order = Int64(order)
+        
+        
+        do{
+            try self.context.save()
+            print("updated site: \(site.name)")
+        }catch{
+            print("failed to update : \(error)")
+        }
+    }
+    
     func saveData(name:String,url:String,background:Int,order:Int){
        
-        let site = Sites(context: self.persistentContainer.viewContext)
+        let site = Sites(context: self.context)
         site.name = name
         site.url = url
         site.backgrround = Int64(background)
         site.order = Int64(order)
         site.id = UUID()
         do{
-            try self.persistentContainer.viewContext.save()
+            try self.context.save()
+            print("new site: \(site.name)")
         }catch{
             print("failed to save : \(error)")
         }
@@ -58,12 +69,12 @@ class CoredataManager{
     func getData() -> [Sites]{
         do{
             print("    ")
-            print("------------------------------------")
-            print("--Start to get data from CoreData---")
-            print("------------------------------------")
+            print("---------------------------")
+            print("--Got data from CoreData---")
+            print("---------------------------")
             print("    ")
             
-            return try self.persistentContainer.viewContext.fetch(Sites.fetchRequest())
+            return try self.context.fetch(Sites.fetchRequest())
         }catch{
             print("failed to get data from CoreData: \(error)")
         }

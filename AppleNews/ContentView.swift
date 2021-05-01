@@ -9,16 +9,16 @@ struct ContentView: View {
     @ObservedObject var initViewOn:InitialViewMode
     @ObservedObject var prev: PrevButtonPosition
     @ObservedObject var loadBroker:LoadBloker
+    private var manager: CoredataManager
+    @State var sites:[Sites] = []
     
     @State var todayMode:Bool = false
     
     @State var on:Bool = false
     
-    @State var showingSite:NSManagedObject?
+    @State var showingSite:Sites?
     @State var showingSite_name = ""//表示しているサイトの名前
-    
-    
-    
+
     @State var webview:WebViewer = WebViewer(url: "https://www.google.com/")
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
     var modalMaxHeight: CGFloat = 267.96000000000004
@@ -27,22 +27,32 @@ struct ContentView: View {
     @State var settingModal:Bool = false
     @State var EdittingModal:Bool = false
     @State var showSheet:Bool = false //ペンシルアイコンを押した時のシート
-    @Environment(\.managedObjectContext) var context
+
     
     
-    @FetchRequest(
-        entity: Sites.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
-    ) var sites: FetchedResults<Sites>
+    init(initViewOn:InitialViewMode,prev:PrevButtonPosition,loadBlocker:LoadBloker, coredata:CoredataManager){
+        self.initViewOn = initViewOn
+        self.prev = prev
+        self.loadBroker = loadBlocker
+        self.manager = coredata
+        
+    }
     
-    
-    func back() {
+    private func back() {
         self.webview.viewer.goBack()
         self.webview.blockLoading()
     }
     
+     func updateIcons(){
+//        self._sites = State<[Sites]>(wrappedValue: self.manager.getData())
+        self._sites.wrappedValue = self.manager.getData()
+        
+
+        
+        print(self.sites)
+    }
     
-    func todayMode(mode:Bool){
+    private func todayMode(mode:Bool){
         self.todayMode = mode
         if(self.todayMode){
             //today画面にするために消させてもらう。
@@ -55,7 +65,7 @@ struct ContentView: View {
         print(self.todayMode)
     }
     
-    
+   
     var body: some View {
         
         ZStack{
@@ -154,22 +164,15 @@ struct ContentView: View {
                                                             
                                                         }),
                                                         .destructive(Text("Remove"), action:{
-                                                            do{
-                                                                self.context.delete(self.showingSite!)
-                                                                try self.context.save()
-                                                            }catch{
-                                                                print("failed to delete the site : \(error)")
-
-                                                            }
-                                                            
-                                                            
+                                                            self.manager.deleteSite(site: self.showingSite as! Sites)
+                                                            self.updateIcons()
                                                         }),
                                                         .cancel(Text("Cancel"))
                                         ])
                                         
                                         
                                     })  .sheet(isPresented: self.$EdittingModal){
-                                        Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
+                                        Settings(self.showingSite!,coredata: self.manager,  updateIcons:self.updateIcons)
                                     }
                                     .offset(x:-40,y: 4)
                                 }
@@ -195,8 +198,8 @@ struct ContentView: View {
                                         .clipShape(Circle())
                                 }
                                 .sheet(isPresented: self.$settingModal, content: {
-                                    //environmentでcontextを受け渡さないと、"is not connected"的なエラーが出る。
-                                    Settings().environment(\.managedObjectContext, self.context)
+                                    
+                                    Settings(coredata:self.manager,updateIcons: self.updateIcons)
                                 })
                                 
                                 //button below is to temporary unavailable
@@ -219,6 +222,8 @@ struct ContentView: View {
                                         self.showingSite_name =  site.name!
                                         self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                         self.showingSite = site
+                                        
+                                        self.updateIcons()
                                         
                                         self.todayMode(mode: false)
                                         
@@ -244,14 +249,18 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
                 
             }else{
-                Settings(self.initViewOn).environment(\.managedObjectContext, self.context)
+                Settings(self.initViewOn,coredata: self.manager, updateIcons:self.updateIcons)
             }
         }
         .onAppear{
             //            print(Client.getArticle( "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fnews.yahoo.co.jp%2Frss%2Ftopics%2Fit.xml"))
-            
-            
-            print(CoredataManager().getData())
+     
+
+            self.sites = self.manager.getData()
+
+            for i in 0 ..< self.sites.count{
+                print(self.sites[i].name!)
+            }
             
             if self.sites.count != 0 {
                 
@@ -278,6 +287,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition(), loadBroker: LoadBloker())
+        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition(), loadBlocker: LoadBloker(),coredata: CoredataManager())
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 struct Settings: View {
-    @Environment(\.managedObjectContext) var context //ManegedObjectContext
+    private var manager:CoredataManager
     @Environment(\.presentationMode) var presentation
     @State var inputedURL = ""
     @State var inputedName = ""
@@ -22,6 +22,7 @@ struct Settings: View {
         case EDIT
     }
     
+    let updateIcons:() -> Void
 
     @ObservedObject var initViewOn:InitialViewMode = InitialViewMode()
     @State var editedObject:Sites!//編集するサイトのNSManagedObject
@@ -36,32 +37,28 @@ struct Settings: View {
                                            0,
                                            0]
     
-    @FetchRequest(
-        entity: Sites.entity(),
-        sortDescriptors: [NSSortDescriptor(keyPath: \Sites.name, ascending: true)]
-    ) var sites: FetchedResults<Sites>
-    
-    init(_ initOn:InitialViewMode){
+
+    init(_ initOn:InitialViewMode,coredata:CoredataManager, updateIcons:@escaping () -> Void  = {}){
         self.mode = .INIT
         self.initViewOn = initOn
-//        UIScrollView.appearance().backgroundColor = UIColor.white
+        self.manager = coredata
+        self.updateIcons = updateIcons
     }
     
-    init(_ site:NSManagedObject){ // サイトの編集する時のinit
+    init(_ site:NSManagedObject,coredata:CoredataManager,updateIcons:@escaping () -> Void  = {}){ // サイトの編集する時のinit
         self._editedObject = State(initialValue: (site as! Sites))
         self.mode = .EDIT
         self._inputedName = State(initialValue:  (site as! Sites).name!)
         self._inputedURL = State(initialValue: (site as! Sites).url!)
-        //        self._inputedColorNum = State(initialValue: Int((site as! Sites).backgrround))
-        //        self.selectOnOpacity[0] = 0
-        //        self.selectOnOpacity[self.inputedColorNum] = 1
         self._title = State(initialValue: "Edit") // タイトルをEditにする。1
-//        UIScrollView.appearance().backgroundColor = UIColor.white
+        self.manager = coredata
+        self.updateIcons = updateIcons
     }
     
-    init(){
+    init(coredata:CoredataManager, updateIcons:@escaping () -> Void = {}){
         self.mode = .ADD
-//        UIScrollView.appearance().backgroundColor = UIColor.white
+        self.manager = coredata
+        self.updateIcons = updateIcons
     }
     
     
@@ -184,7 +181,7 @@ struct Settings: View {
             }
             
             print("initViewの値：\(self.initViewOn.initialMode)")
-            self.addSite()
+   
             if(self.mode == .INIT){
                 self.initViewOn.initialMode = false
                 
@@ -197,42 +194,14 @@ struct Settings: View {
                     let newName = self.inputedName
                     let newURL = self.inputedURL
                     let newIcon = self.inputedColorNum
+                    let newOrder = self.editedObject!.order
                     
-                    let siteID = self.editedObject.id! as NSUUID
-                    
-                    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Sites")
-                    fetchRequest.predicate = NSPredicate(format: "id == %@", siteID as CVarArg)
-                    
-                    fetchRequest.fetchLimit = 1
-                    
-                    do{
-                        let test = try self.context.fetch(fetchRequest)
-                        let target =  test[0] as! Sites
-                        target.name = newName
-                        target.url = newURL
-                        target.backgrround = Int64(newIcon)
-                        print("編集したサイトのIconナンバー：\(newIcon)")
-                        try self.context.save()
-                        //
-                        //                                self.context.refreshAllObjects()
-                        let fetchRequest:NSFetchRequest<Sites> = NSFetchRequest(entityName: "Sites")
-                        let fetchData = try self.context.fetch(fetchRequest)
-                        
-                        for i in 0..<fetchData.count{
-                            if(fetchData[i].url! as String == newURL){
-                                //なぜか２つサイトが登録されるので、入力したのと同じURLがあったらその時点で（1個目で）削除して、breakして抜けた、
-                                self.context.delete(self.editedObject)
-                                break
-                            }
-                        }
-                        
-                        try self.context.save()
-                        
-                    }catch{
-                        print(error)
-                    }
-                    
-                    
+                    self.manager.update(site: self.editedObject!, name: newName, url: newURL, background: newIcon, order: Int(newOrder))
+                    self.updateIcons()
+
+                }else if(self.mode == .ADD){
+                    self.addSite()
+                    self.updateIcons()
                 }
                 
                 
@@ -254,23 +223,14 @@ struct Settings: View {
     
     
     func addSite(){
-        let newSite = Sites(context: context)
-        newSite.id = UUID()
-        newSite.name = inputedName
-        newSite.url = inputedURL
-        newSite.backgrround = Int64(Double(Int(inputedColorNum) )) // Int → Double　→ Int64に変換。色番号の初期値は1
         
+        self.manager.saveData(name: inputedName, url: inputedURL, background: Int(Int64(Double(Int(inputedColorNum) ))), order: 0)
+
         
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save new site")
-            print(error)
-        }
-        
+
     }
     
+
     
     mutating func changeMode(_ mode:modeType){
         self.mode = mode
@@ -280,6 +240,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings(InitialViewMode())
+        Settings(InitialViewMode(),coredata: CoredataManager(), updateIcons: {})
     }
 }
