@@ -5,7 +5,7 @@ import WebKit
 
 
 struct ContentView: View {
-    //hello world
+    
     @ObservedObject var initViewOn:InitialViewMode
     @ObservedObject var prev: PrevButtonPosition
     @ObservedObject var loadBroker:LoadBloker
