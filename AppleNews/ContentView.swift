@@ -195,7 +195,7 @@ struct ContentView: View {
                                 ForEach(self.sites){ site in
                                     
                                     
-                                    if(site.name! == "TemporalSite" && site.url! == "TEMPORALSITE_BOOKMARKER"){
+                                    if(site.name! == CoredataManager.dummySiteName && site.url! == CoredataManager.dummySiteURL){
                                         EmptyView()
                                     }else{
                                         Button(action:{
@@ -263,7 +263,7 @@ struct ContentView: View {
             
         }.onDisappear{
             print("disappered!!")
-            self.manager.deleteTemporalSites()
+            self.manager.deleteDummySites()
    
         }
     

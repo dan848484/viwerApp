@@ -11,8 +11,10 @@ import CoreData
 import SwiftUI
 
 class CoredataManager{
-    var context:NSManagedObjectContext
+    private var context:NSManagedObjectContext
     
+    static let dummySiteName:String = "DummySite"
+    static let dummySiteURL:String = "DUMMYSITE_BOOKMARKER"
     
     init(){
         print("    ")
@@ -23,11 +25,11 @@ class CoredataManager{
         self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext        
     }
     
-    func deleteTemporalSites(){
+    func deleteDummySites(){
         let items:[Sites] = self.getData()
               for i in 0 ..< items.count{
                   let item = items[i]
-                  if(item.name! == "TemporalSite" && item.url! == "TEMPORALSITE_BOOKMARKER"){
+                if(item.name! == CoredataManager.dummySiteName && item.url! == CoredataManager.dummySiteURL){
                       self.deleteSite(site: item)
                   }
               }
@@ -36,7 +38,7 @@ class CoredataManager{
     
     func deleteSite(site: Sites){
         self.context.delete(site)
-        print("deleted site : \(site.name)")
+        print("deleted site : \(site.name!)")
         do{
             try self.context.save()
         }catch{
@@ -52,12 +54,12 @@ class CoredataManager{
         site.backgrround = Int64(background)
         site.order = Int64(order)
         
-        self.saveTemporalData()
+        self.saveDummySite()
         
         
         do{
             try self.context.save()
-            print("updated site: \(site.name)")
+            print("updated site: \(site.name!)")
         }catch{
             print("failed to update : \(error)")
         }
@@ -75,16 +77,16 @@ class CoredataManager{
         
         do{
             try self.context.save()
-            print("new site: \(site.name)")
+            print("new site: \(site.name!)")
         }catch{
             print("failed to save : \(error)")
         }
     }
     
-    private func saveTemporalData(){
+    private func saveDummySite(){
         let site = Sites(context: self.context)
-        site.name = "TemporalSite"
-        site.url = "TEMPORALSITE_BOOKMARKER"
+        site.name = CoredataManager.dummySiteName
+        site.url = CoredataManager.dummySiteURL
         site.backgrround = Int64(0)
         site.order = Int64(0)
         site.id = UUID()
