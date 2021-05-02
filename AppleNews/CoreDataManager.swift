@@ -21,6 +21,27 @@ class CoredataManager{
         print("---------------------------------")
         print("    ")
         self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        let items:[Sites] = self.getData()
+        
+        print("    ")
+        print("------------here is datas from CoreData---------------------")
+        for i in 0 ..< items.count{
+            let item = items[i]
+            print(item.name)
+        }
+        print("---------------------------------")
+        print("    ")
+        
+        
+        for i in 0 ..< items.count{
+            let item = items[i]
+            if(item.name! == "TemporalSite" && item.url! == "TEMPORALSITE_BOOKMARKER"){
+                self.deleteSite(site: item)
+            }
+        }
+        
+        
     }
     
     
@@ -35,10 +56,14 @@ class CoredataManager{
     }
     
     func update(site:Sites,name:String,url:String,background:Int,order:Int){
+        
+        
         site.name = name
         site.url = url
         site.backgrround = Int64(background)
         site.order = Int64(order)
+        
+        self.saveTemporalData()
         
         
         do{
@@ -50,20 +75,36 @@ class CoredataManager{
     }
     
     func saveData(name:String,url:String,background:Int,order:Int){
-       
         let site = Sites(context: self.context)
         site.name = name
         site.url = url
         site.backgrround = Int64(background)
         site.order = Int64(order)
         site.id = UUID()
+        
+        
+        
         do{
             try self.context.save()
             print("new site: \(site.name)")
         }catch{
             print("failed to save : \(error)")
         }
-        
+    }
+    
+    private func saveTemporalData(){
+        let site = Sites(context: self.context)
+        site.name = "TemporalSite"
+        site.url = "TEMPORALSITE_BOOKMARKER"
+        site.backgrround = Int64(0)
+        site.order = Int64(0)
+        site.id = UUID()
+        do{
+            try self.context.save()
+            
+        }catch{
+            print("failed to save temporal site : \(error)")
+        }
     }
     
     func getData() -> [Sites]{
@@ -74,7 +115,9 @@ class CoredataManager{
             print("---------------------------")
             print("    ")
             
-            return try self.context.fetch(Sites.fetchRequest())
+            var items:[Sites] = try self.context.fetch(Sites.fetchRequest())
+            
+            return items
         }catch{
             print("failed to get data from CoreData: \(error)")
         }

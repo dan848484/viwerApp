@@ -43,15 +43,6 @@ struct ContentView: View {
         self.webview.blockLoading()
     }
     
-     func updateIcons(){
-//        self._sites = State<[Sites]>(wrappedValue: self.manager.getData())
-        self._sites.wrappedValue = self.manager.getData()
-        
-
-        
-        print(self.sites)
-    }
-    
     private func todayMode(mode:Bool){
         self.todayMode = mode
         if(self.todayMode){
@@ -67,10 +58,7 @@ struct ContentView: View {
     
    
     var body: some View {
-        
         ZStack{
-            
-            
             if self.initViewOn.initialMode == false {
                 VStack{
                     ZStack{
@@ -83,18 +71,11 @@ struct ContentView: View {
                         }
                  
                     }.zIndex(3.0)
-                    
-                    
-                    
                 }.background(Color(UIColor(hex: "F2F2F2")))
-                
-                
                 GeometryReader{ geometry in
-                    
                     VStack{//ブラウザの戻るボタン
                         Button(action:{
                             self.back()
-                            
                         }){
                             Circle()
                                 .foregroundColor(Color(UIColor.secondarySystemBackground))
@@ -165,14 +146,14 @@ struct ContentView: View {
                                                         }),
                                                         .destructive(Text("Remove"), action:{
                                                             self.manager.deleteSite(site: self.showingSite as! Sites)
-                                                            self.updateIcons()
+                                                            self.sites = self.manager.getData()
                                                         }),
                                                         .cancel(Text("Cancel"))
                                         ])
                                         
                                         
                                     })  .sheet(isPresented: self.$EdittingModal){
-                                        Settings(self.showingSite!,coredata: self.manager,  updateIcons:self.updateIcons)
+                                        Settings(self.showingSite!,coredata: self.manager, sites: self.$sites)
                                     }
                                     .offset(x:-40,y: 4)
                                 }
@@ -199,7 +180,7 @@ struct ContentView: View {
                                 }
                                 .sheet(isPresented: self.$settingModal, content: {
                                     
-                                    Settings(coredata:self.manager,updateIcons: self.updateIcons)
+                                    Settings(coredata:self.manager, sites: self.$sites)
                                 })
                                 
                                 //button below is to temporary unavailable
@@ -214,27 +195,35 @@ struct ContentView: View {
                                 ForEach(self.sites){ site in
                                     
                                     
-                                    Button(action:{
-                                        
-                                        self.loadBroker.isBloked = false
-                                        
-                                        self.webview.url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
-                                        self.showingSite_name =  site.name!
-                                        self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
-                                        self.showingSite = site
-                                        
-                                        self.updateIcons()
-                                        
-                                        self.todayMode(mode: false)
-                                        
-                                        
-                                        
-                                    }){
-                                        Icon(site)
-                                            .padding(.horizontal, 8)
+                                    if(site.name! == "TemporalSite" && site.url! == "TEMPORALSITE_BOOKMARKER"){
+                                        EmptyView()
+                                    }else{
+                                        Button(action:{
+                                            
+                                            self.loadBroker.isBloked = false
+                                            
+                                            self.webview.url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
+                                            self.showingSite_name =  site.name!
+                                            self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
+                                            self.showingSite = site
+                                            
+                                            self.sites = self.manager.getData()
+                                            
+                                            self.todayMode(mode: false)
+                                            
+                                            
+                                            
+                                        }){
+                                            Icon(site)
+                                                .padding(.horizontal, 8)
+                                        }
                                     }
                                     
-                                    //
+
+                                    
+                                    
+                                    
+                                    
                                 }
                             }
                         }
@@ -249,7 +238,7 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
                 
             }else{
-                Settings(self.initViewOn,coredata: self.manager, updateIcons:self.updateIcons)
+                Settings(self.initViewOn,coredata: self.manager, sites: self.$sites)
             }
         }
         .onAppear{
