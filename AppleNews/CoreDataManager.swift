@@ -20,28 +20,17 @@ class CoredataManager{
         print("---Initialized CoreDataManager---")
         print("---------------------------------")
         print("    ")
-        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
+        self.context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext        
+    }
+    
+    func deleteTemporalSites(){
         let items:[Sites] = self.getData()
-        
-        print("    ")
-        print("------------here is datas from CoreData---------------------")
-        for i in 0 ..< items.count{
-            let item = items[i]
-            print(item.name)
-        }
-        print("---------------------------------")
-        print("    ")
-        
-        
-        for i in 0 ..< items.count{
-            let item = items[i]
-            if(item.name! == "TemporalSite" && item.url! == "TEMPORALSITE_BOOKMARKER"){
-                self.deleteSite(site: item)
-            }
-        }
-        
-        
+              for i in 0 ..< items.count{
+                  let item = items[i]
+                  if(item.name! == "TemporalSite" && item.url! == "TEMPORALSITE_BOOKMARKER"){
+                      self.deleteSite(site: item)
+                  }
+              }
     }
     
     
@@ -123,4 +112,6 @@ class CoredataManager{
         }
         return []
     }
+    
+    
 }

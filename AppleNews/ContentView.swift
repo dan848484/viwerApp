@@ -218,12 +218,6 @@ struct ContentView: View {
                                                 .padding(.horizontal, 8)
                                         }
                                     }
-                                    
-
-                                    
-                                    
-                                    
-                                    
                                 }
                             }
                         }
@@ -267,11 +261,13 @@ struct ContentView: View {
                 self.initViewOn.initialMode = true
             }
             
+        }.onDisappear{
+            print("disappered!!")
+            self.manager.deleteTemporalSites()
+   
         }
-        
+    
     }
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
