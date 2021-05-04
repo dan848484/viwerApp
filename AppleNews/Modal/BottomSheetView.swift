@@ -14,17 +14,18 @@ struct BottomSheetView<Content: View>: View  {
     @GestureState private var translation: CGFloat = 0
     @ObservedObject var prevButton: PrevButtonPosition
     
-    let maxHeight: CGFloat
+//    let maxHeight: CGFloat
     let minHeight: CGFloat
     let content:Content
     let closure = {}()
+    let maxHeight: CGFloat = 267.96000000000004
     
-    init(isOpen: Binding<Bool>, maxHeight: CGFloat,prev :PrevButtonPosition , @ViewBuilder content: () -> Content){
+    init(isOpen: Binding<Bool>,prev :PrevButtonPosition , @ViewBuilder content: () -> Content){
         self.minHeight = maxHeight * Constants.minHeightRatio
-        self.maxHeight = maxHeight
         self.content = content()
         self._isOpen = isOpen
         self.prevButton = prev
+        
     }
     
     private var sinkedAmout: CGFloat{
@@ -55,6 +56,7 @@ struct BottomSheetView<Content: View>: View  {
             .animation(.interactiveSpring())
             .gesture(
                 DragGesture().updating(self.$translation) { value, state, _ in
+             
                     state = value.translation.height
                     
                     if self.translation < 0 && self.isOpen{

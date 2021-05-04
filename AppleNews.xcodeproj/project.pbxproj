@@ -23,6 +23,8 @@
 		D0C74FD02486842B004B96A9 /* GradientMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C74FCF2486842B004B96A9 /* GradientMaker.swift */; };
 		D0C8912826383B27007CA375 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C8912726383B27007CA375 /* CoreDataManager.swift */; };
 		D0D2466326359B280065DA7E /* LoadBlocker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D2466226359B280065DA7E /* LoadBlocker.swift */; };
+		D0E9724C2640597B0041E46A /* PageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9724B2640597B0041E46A /* PageViewer.swift */; };
+		D0E9724E264129370041E46A /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E9724D264129370041E46A /* Controller.swift */; };
 		D0F38D64245D788C008C1CBD /* AppleNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0F38D62245D788C008C1CBD /* AppleNews.xcdatamodeld */; };
 		D0F59E5924E46A9400C8B54C /* PrevButtonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5824E46A9400C8B54C /* PrevButtonPosition.swift */; };
 		D0FA10B3245C2A2C0049DC32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA10B2245C2A2C0049DC32 /* AppDelegate.swift */; };
@@ -69,6 +71,8 @@
 		D0C74FCF2486842B004B96A9 /* GradientMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientMaker.swift; sourceTree = "<group>"; };
 		D0C8912726383B27007CA375 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D0D2466226359B280065DA7E /* LoadBlocker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadBlocker.swift; sourceTree = "<group>"; };
+		D0E9724B2640597B0041E46A /* PageViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewer.swift; sourceTree = "<group>"; };
+		D0E9724D264129370041E46A /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		D0F38D63245D788C008C1CBD /* AppleNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppleNews.xcdatamodel; sourceTree = "<group>"; };
 		D0F59E5524E4692800C8B54C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		D0F59E5624E4693200C8B54C /* Webview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webview.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 			children = (
 				D014BC342503EBF0000D72AE /* Icon.swift */,
 				D035A9802538862500B86FB8 /* SFSafariView.swift */,
+				D0E9724B2640597B0041E46A /* PageViewer.swift */,
+				D0E9724D264129370041E46A /* Controller.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 			files = (
 				D0F38D64245D788C008C1CBD /* AppleNews.xcdatamodeld in Sources */,
 				D04BFCE62518D8F200376DCB /* Client.swift in Sources */,
+				D0E9724C2640597B0041E46A /* PageViewer.swift in Sources */,
 				D014BC372503EC29000D72AE /* Sites+Ectentions.swift in Sources */,
 				D035A9812538862500B86FB8 /* SFSafariView.swift in Sources */,
 				D09B0A4626379BF000B2FBC5 /* OrderView.swift in Sources */,
@@ -454,6 +461,7 @@
 				D04BFCE82518E2A300376DCB /* SitesConfig.swift in Sources */,
 				D0C2FD58251C054700EDAC1C /* Today.swift in Sources */,
 				D0FA10B5245C2A2C0049DC32 /* SceneDelegate.swift in Sources */,
+				D0E9724E264129370041E46A /* Controller.swift in Sources */,
 				D0FA10BA245C2A2C0049DC32 /* ContentView.swift in Sources */,
 				D0F59E5924E46A9400C8B54C /* PrevButtonPosition.swift in Sources */,
 				D0D2466326359B280065DA7E /* LoadBlocker.swift in Sources */,
