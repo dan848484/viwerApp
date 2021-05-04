@@ -81,9 +81,19 @@ struct BottomSheetView<Content: View>: View  {
                     
                     
                 }.onEnded { value in
+                    
                     let swipeDistance = self.maxHeight * Constants.swipeRatio
                     
+                 
+                    
                     guard abs(value.translation.height) > swipeDistance else{
+                        
+                        if(self.isOpen){
+                            self.prevButton.position = 0
+                        }else{
+                            self.prevButton.position = self.maxHeight - self.minHeight
+                        }
+                        
                         return
                     }
                     
@@ -92,6 +102,8 @@ struct BottomSheetView<Content: View>: View  {
                     if self.isOpen {
                         //オープン状態では最終的に戻るボタンは元々の位置
                         self.prevButton.position = 0
+                      
+                        
                     }else{
                         //しまっている状態では最終的にはモーダルが沈んだ分だけ
                         self.prevButton.position = self.maxHeight - self.minHeight
