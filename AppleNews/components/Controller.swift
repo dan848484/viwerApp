@@ -17,6 +17,7 @@ struct Controller: View {
     @Binding private var webview:WebViewer
     @State var showSheet:Bool = false //ペンシルアイコンを押した時のシート
     @State var EdittingModal:Bool = false
+    @State var changeOrderView:Bool = false
     private var manager: CoredataManager
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
     @State var showingSite:Sites?
@@ -24,13 +25,12 @@ struct Controller: View {
     @State var settingModal:Bool = false
     @ObservedObject var loadBloker:LoadBloker
     @ObservedObject var initViewOn:InitialViewMode
-
+    
     init(coredata:CoredataManager, prev :PrevButtonPosition,
          sites:Binding<[Sites]>,
          webview: Binding<WebViewer>,
          loadBlocker: LoadBloker,
          initViewOn: InitialViewMode){
-        
         self.prev = prev
         self._sites = sites
         self._webview = webview
@@ -40,18 +40,14 @@ struct Controller: View {
     }
     
     var body: some View {
-        
-
         Group{
             //モーダル
             BottomSheetView(isOpen: self.$bottomSheetShown,
                             prev: self.prev){
-                
                 Group{
                     HStack(){
                         Group{
                             Group{
-                                
                                 ZStack{
                                     Circle()
                                         .frame(width: 42, height: 42)
@@ -89,6 +85,7 @@ struct Controller: View {
                                                     //Settings(self.showingSite!).environment(\.managedObjectContext, self.context)
                                                 }),
                                                 Alert.Button.default(Text("Change The Order"),action: {
+                                                    self.changeOrderView = true
                                                     
                                                 }),
                                                 .destructive(Text("Remove"), action:{
@@ -101,7 +98,10 @@ struct Controller: View {
                                 
                             })  .sheet(isPresented: self.$EdittingModal){
                                 Settings(self.showingSite!,coredata: self.manager, sites: self.$sites)
+                            }.sheet(isPresented: self.$changeOrderView){
+                                OrderView(sites: self.$sites, isShown: self.$changeOrderView)
                             }
+                            
                             .offset(x:-40,y: 4)
                         }
                     }
@@ -126,31 +126,20 @@ struct Controller: View {
                                 .clipShape(Circle())
                         }
                         .sheet(isPresented: self.$settingModal, content: {
-                            
                             Settings(coredata:self.manager, sites: self.$sites)
-                        })                                                
-                        
+                        })
                         ForEach(self.sites){ site in
-                            
-                            
                             if(site.name! == CoredataManager.dummySiteName && site.url! == CoredataManager.dummySiteURL){
                                 EmptyView()
                             }else{
                                 Button(action:{
-                                    
                                     self.loadBloker.isBloked = false
-                                    
                                     self.webview.url = site.url ?? "http://www.kuronekoyamato.co.jp/ytc/404error.html"
                                     self.showingSite_name =  site.name!
                                     self.iconBackground = GradientMaker.backGroundColor(colorNum: Int(site.backgrround))
                                     self.showingSite = site
                                     
                                     self.sites = self.manager.getData()
-                                    
-                                    
-                                    
-                                    
-                                    
                                 }){
                                     Icon(site)
                                         .padding(.horizontal, 8)
@@ -163,8 +152,6 @@ struct Controller: View {
                 .padding(.top,20)
                 .background(Color(UIColor.secondarySystemBackground))
                 .edgesIgnoringSafeArea(.bottom)
-                
-                
             }
         }
         .onAppear{
@@ -180,12 +167,10 @@ struct Controller: View {
                 self.showingSite = initialSite
                 self.webview.setBloker(blocker: loadBloker)
                 self.webview.unblockLoading()
-                
             }else{
                 print("登録されているサイトはないです。")
                 self.initViewOn.initialMode = true
             }
-            
         }
         .edgesIgnoringSafeArea(.all)
         }
