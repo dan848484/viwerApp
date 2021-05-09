@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 import SwiftUI
 
-class CoredataManager{
+class CoredataManager: ObservableObject{
     private var context:NSManagedObjectContext
     
     static let dummySiteName:String = "DummySite"

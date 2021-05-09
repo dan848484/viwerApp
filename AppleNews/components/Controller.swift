@@ -18,25 +18,23 @@ struct Controller: View {
     @State var showSheet:Bool = false //ペンシルアイコンを押した時のシート
     @State var EdittingModal:Bool = false
     @State var changeOrderView:Bool = false
-    private var manager: CoredataManager
+    @EnvironmentObject private var manager: CoredataManager
     @State var iconBackground = LinearGradient(gradient: Gradient(colors: [Color.white, Color.black]), startPoint: UnitPoint.init(x: 0, y: 0), endPoint: UnitPoint.init(x:1,y:1))
     @State var showingSite:Sites?
     @State var showingSite_name = ""//表示しているサイトの名前
     @State var settingModal:Bool = false
     @ObservedObject var loadBloker:LoadBloker
-    @ObservedObject var initViewOn:InitialViewMode
+    @EnvironmentObject var initViewOn:InitialViewMode
     
-    init(coredata:CoredataManager, prev :PrevButtonPosition,
+    init(prev :PrevButtonPosition,
          sites:Binding<[Sites]>,
          webview: Binding<WebViewer>,
-         loadBlocker: LoadBloker,
-         initViewOn: InitialViewMode){
+         loadBlocker: LoadBloker){
         self.prev = prev
         self._sites = sites
         self._webview = webview
-        self.manager = coredata
         self.loadBloker = loadBlocker
-        self.initViewOn = initViewOn
+      
     }
     
     var body: some View {
@@ -97,9 +95,12 @@ struct Controller: View {
                                 
                                 
                             })  .sheet(isPresented: self.$EdittingModal){
-                                Settings(self.showingSite!,coredata: self.manager, sites: self.$sites)
+                                Settings(self.showingSite!, sites: self.$sites, coredata: self.manager)
+                                    .environmentObject(self.manager)
+                                    
                             }.sheet(isPresented: self.$changeOrderView){
                                 OrderView(sites: self.$sites, isShown: self.$changeOrderView)
+                                    .environmentObject(self.manager)
                             }
                             
                             .offset(x:-40,y: 4)
@@ -126,10 +127,11 @@ struct Controller: View {
                                 .clipShape(Circle())
                         }
                         .sheet(isPresented: self.$settingModal, content: {
-                            Settings(coredata:self.manager, sites: self.$sites)
+                            Settings(sites: self.$sites, coredata: self.manager)
+                                .environmentObject(self.manager)
                         })
-                        ForEach(self.sites){ site in
-                            if(site.name! == CoredataManager.dummySiteName && site.url! == CoredataManager.dummySiteURL){
+                        ForEach(organizeSites(self.sites)){ site in
+                            if(site.name != nil && site.name! == CoredataManager.dummySiteName && site.url! == CoredataManager.dummySiteURL){
                                 EmptyView()
                             }else{
                                 Button(action:{
@@ -156,6 +158,8 @@ struct Controller: View {
         }
         .onAppear{
             self.sites = self.manager.getData()
+            
+            
             for i in 0 ..< self.sites.count{
                 print(self.sites[i].name!)
             }

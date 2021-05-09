@@ -12,7 +12,7 @@ struct OrderView: View {
     
     @Binding var sites:[Sites]
     @Binding var isShown:Bool
-    
+    @EnvironmentObject private var manager: CoredataManager
     init(sites:Binding<[Sites]>,isShown:Binding<Bool>){
         self._sites = sites
         self._isShown = isShown
@@ -21,23 +21,36 @@ struct OrderView: View {
     
     private func rowReplace(from: IndexSet, to: Int){
         self.sites.move(fromOffsets: from, toOffset: to)
+        
+        for i in 0 ..< self.sites.count{
+            self.manager.update(site: self.sites[i],
+                                name: self.sites[i].name!,
+                                url: self.sites[i].url!,
+                                background: Int(self.sites[i].backgrround),
+                                order: i)
+        }
+        self.manager.deleteDummySites()
+        self.sites = organizeSites(self.manager.getData())
+        
     }
     
     var body: some View {
         NavigationView{
             List{
-                ForEach(self.sites){ site in
-                    Text(site.name!)
+                ForEach(organizeSites(self.sites)){ site in
+                    HStack {
+                        Text(String(Int(site.order)))
+                        Text(site.name ?? "faile to load")
+                    }.id(UUID())
+                    .onAppear(){
+                        print(site)
+                    }
+                     
                 }.onMove(perform: self.rowReplace)
                 
             }.navigationTitle("Orders")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar(content: {
-                Button("Done"){
-                    self.isShown = false
-                }
-            })
-            
+            .navigationBarItems(trailing: EditButton())
         }
     }
     

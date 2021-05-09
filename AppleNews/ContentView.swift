@@ -6,29 +6,26 @@ import WebKit
 
 struct ContentView: View {
     @State var webview:WebViewer = WebViewer(url: "https://www.google.com/")
-    @ObservedObject var initViewOn:InitialViewMode
+    @EnvironmentObject var initViewOn: InitialViewMode
     @ObservedObject var prev: PrevButtonPosition
-    private var manager: CoredataManager
+    @EnvironmentObject private var manager: CoredataManager
     @State var sites:[Sites] = []
     @ObservedObject var loadBroker:LoadBloker
     @State var todayMode:Bool = false
     @State var on:Bool = false
-
-    init(initViewOn:InitialViewMode,prev:PrevButtonPosition,loadBlocker:LoadBloker, coredata:CoredataManager){
-        self.initViewOn = initViewOn
+    
+    init(prev:PrevButtonPosition,loadBlocker:LoadBloker){
         self.prev = prev
         self.loadBroker = loadBlocker
-        self.manager = coredata
     }
     
     var body: some View {
         ZStack{
             if self.initViewOn.initialMode == false {
                 PageViewer(prev: self.prev,webview: self.$webview)
-                Controller(coredata: self.manager, prev: self.prev,sites: self.$sites,webview: self.$webview,loadBlocker: self.loadBroker, initViewOn:self.initViewOn)
-                
+                Controller(prev: self.prev,sites: self.$sites,webview: self.$webview,loadBlocker: self.loadBroker)
             }else{
-                Settings(self.initViewOn,coredata: self.manager, sites: self.$sites)
+                Settings(sites: self.$sites, coredata: self.manager)
             }
         }
         .onDisappear{
@@ -42,6 +39,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(initViewOn: InitialViewMode(),prev: PrevButtonPosition(), loadBlocker: LoadBloker(),coredata: CoredataManager())
+        ContentView(prev: PrevButtonPosition(), loadBlocker: LoadBloker()).environmentObject(CoredataManager())
     }
 }

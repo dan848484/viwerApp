@@ -10,7 +10,7 @@ import SwiftUI
 import CoreData
 
 struct Settings: View {
-    private var manager:CoredataManager
+    private var manager: CoredataManager
     @Environment(\.presentationMode) var presentation
     @State var inputedURL = ""
     @State var inputedName = ""
@@ -21,12 +21,10 @@ struct Settings: View {
         case INIT
         case EDIT
     }
-    
     @Binding var sites:[Sites]
-    
-
-    @ObservedObject var initViewOn:InitialViewMode = InitialViewMode()
+    @EnvironmentObject var initViewOn: InitialViewMode
     @State var editedObject:Sites!//編集するサイトのNSManagedObject
+    
     var mode:modeType = .ADD //デフォルトのモードはADD
     
     //色を選択したときに出てくる枠線とか影とかの透明度を管理する配列
@@ -38,31 +36,28 @@ struct Settings: View {
                                            0,
                                            0]
     
-
-    init(_ initOn:InitialViewMode,coredata:CoredataManager,sites: Binding<[Sites]>){
-        self.mode = .INIT
-        self.initViewOn = initOn
-        self.manager = coredata
-        self._sites = sites
-
-    }
-    
-    init(_ site:NSManagedObject,coredata:CoredataManager, sites: Binding<[Sites]>){ // サイトの編集する時のinit
+    init(_ site:NSManagedObject, sites: Binding<[Sites]>,coredata: CoredataManager){ // サイトの編集する時のinit
         self._editedObject = State(initialValue: (site as! Sites))
         self.mode = .EDIT
         self._inputedName = State(initialValue:  (site as! Sites).name!)
         self._inputedURL = State(initialValue: (site as! Sites).url!)
         self._title = State(initialValue: "Edit") // タイトルをEditにする。1
-        self.manager = coredata
         self._sites = sites
+        self.manager = coredata
+        
     }
     
-    init(coredata:CoredataManager, sites: Binding<[Sites]>){
-        self.mode = .ADD
-        self.manager = coredata
+    init(sites: Binding<[Sites]>,coredata: CoredataManager){
         self._sites = sites
+        self.manager = coredata
+        if(self.manager.getData().count == 0 ){
+            self.mode = .INIT
+        }else{
+            self.mode = .ADD
+        }
     }
     
+
     
     
     var body: some View {
@@ -86,6 +81,7 @@ struct Settings: View {
                             }
                             .padding(.top,5)
                             .padding(.bottom,5)
+                            
                             
                             Section(header: Text("Icon Colors")){
                                 ScrollView(.horizontal){
@@ -134,9 +130,9 @@ struct Settings: View {
             }
         }
     }
-    func getMarginLeft(){
-        
-    }
+    
+
+
     
     func getButton() -> some View{
         
@@ -157,10 +153,10 @@ struct Settings: View {
                 
             }
             
-            print("initViewの値：\(self.initViewOn.initialMode)")
-   
+
             if(self.mode == .INIT){
                 self.initViewOn.initialMode = false
+                self.addSite()
                 
             }else if(self.mode == .ADD || self.mode == .EDIT){
                 
@@ -176,6 +172,7 @@ struct Settings: View {
                 }else if(self.mode == .ADD){
                     self.addSite()
                     self.sites = self.manager.getData()
+                   
                 }
                 
                 self.presentation.wrappedValue.dismiss()
@@ -196,11 +193,9 @@ struct Settings: View {
     
     
     func addSite(){
+        let order = self.sites.count
+        self.manager.saveData(name: inputedName, url: inputedURL, background: Int(Int64(Double(Int(inputedColorNum) ))), order: order)
         
-        self.manager.saveData(name: inputedName, url: inputedURL, background: Int(Int64(Double(Int(inputedColorNum) ))), order: 0)
-
-        
-
     }
     
     mutating func changeMode(_ mode:modeType){
@@ -211,6 +206,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings(InitialViewMode(),coredata: CoredataManager(), sites: Binding<[Sites]>.constant([]))
+        Settings(sites: Binding<[Sites]>.constant([]),coredata: CoredataManager())
     }
 }

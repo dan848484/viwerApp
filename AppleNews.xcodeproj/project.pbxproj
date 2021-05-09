@@ -16,6 +16,7 @@
 		D04BFCE62518D8F200376DCB /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE52518D8F200376DCB /* Client.swift */; };
 		D04BFCE82518E2A300376DCB /* SitesConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BFCE72518E2A300376DCB /* SitesConfig.swift */; };
 		D05ECB3C2505060900D707C9 /* Webview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F59E5624E4693200C8B54C /* Webview.swift */; };
+		D07B77262647C178001626AD /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07B77252647C178001626AD /* Utilities.swift */; };
 		D09B0A4626379BF000B2FBC5 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B0A4526379BF000B2FBC5 /* OrderView.swift */; };
 		D0A2384724A73BDA006147E0 /* InitialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2384624A73BDA006147E0 /* InitialView.swift */; };
 		D0B1403224CD8B65000E4559 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1403124CD8B65000E4559 /* BottomSheetView.swift */; };
@@ -64,6 +65,7 @@
 		D035A9802538862500B86FB8 /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
 		D04BFCE52518D8F200376DCB /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		D04BFCE72518E2A300376DCB /* SitesConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesConfig.swift; sourceTree = "<group>"; };
+		D07B77252647C178001626AD /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		D09B0A4526379BF000B2FBC5 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		D0A2384624A73BDA006147E0 /* InitialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialView.swift; sourceTree = "<group>"; };
 		D0B1403124CD8B65000E4559 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				D0F38D62245D788C008C1CBD /* AppleNews.xcdatamodeld */,
 				D0FA10BD245C2A310049DC32 /* Preview Content */,
 				D0C8912726383B27007CA375 /* CoreDataManager.swift */,
+				D07B77252647C178001626AD /* Utilities.swift */,
 			);
 			path = AppleNews;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				D04BFCE82518E2A300376DCB /* SitesConfig.swift in Sources */,
 				D0C2FD58251C054700EDAC1C /* Today.swift in Sources */,
 				D0FA10B5245C2A2C0049DC32 /* SceneDelegate.swift in Sources */,
+				D07B77262647C178001626AD /* Utilities.swift in Sources */,
 				D0E9724E264129370041E46A /* Controller.swift in Sources */,
 				D0FA10BA245C2A2C0049DC32 /* ContentView.swift in Sources */,
 				D0F59E5924E46A9400C8B54C /* PrevButtonPosition.swift in Sources */,
